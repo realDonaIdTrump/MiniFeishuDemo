@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/requirement/requirement",
+    "pages/new/new",
+    "pages/requirementContents/requirementContents"
+  ],
+  "window": {
+    "navigationBarTitleText": "MiniFeishuDemo"
+  }
+}

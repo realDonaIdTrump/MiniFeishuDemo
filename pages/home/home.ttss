@@ -1,0 +1,144 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.title-section {
+  text-align: left;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 将内容对齐到左侧 */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dropdown-section {
+  margin-top: 0; /* 确保下拉菜单紧跟在 Home 文字下方 */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-selected {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.dropdown-option {
+  padding: 5px; /* 调整选项的 padding */
+  cursor: pointer;
+  font-size: 12px; /* 调整文字大小 */
+}
+
+.dropdown-option:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-text {
+  font-size: 14px; /* 调整选中项的文字大小 */
+}
+
+.arrow-icon {
+  width: 16px;  /* 设置图标宽度 */
+  height: 16px;  /* 设置图标高度 */
+  margin-left: 5px;  /* 设置图标和文字之间的间距 */
+  vertical-align: middle;  /* 使图标和文字垂直居中 */
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card {
+  width: 45%;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left; /* 将卡片内容对齐到左侧 */
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-start; /* 将header内容对齐到左侧 */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.card-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-number {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4e9af1;
+  margin-left: auto;
+}
+
+.card-body {
+  margin-top: 10px;
+}
+
+.card-description {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}

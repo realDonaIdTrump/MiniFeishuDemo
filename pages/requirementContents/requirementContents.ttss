@@ -1,0 +1,16 @@
+.container {
+  padding: 20px;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+button {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #1aad19;
+  color: white;
+  text-align: center;
+}

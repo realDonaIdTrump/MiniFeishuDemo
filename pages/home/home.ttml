@@ -1,0 +1,47 @@
+<view class="container" bindtap="hidePicker">
+  <view class="header">
+    <image class="logo" src="/images/feishu.png" mode="aspectFit" />
+  </view>
+  <view class="title-section">
+    <text class="title">Home</text>
+    <view class="dropdown-section">
+      <view class="dropdown" data-picker="true" catchtap="toggleArrowDirection">
+        <view class="dropdown-selected">
+          <text class="dropdown-text">{{selectedVehicleType}}</text>
+          <image class="arrow-icon" src="/images/arrow-{{arrowDirection}}.png" mode="aspectFit" />
+        </view>
+        <view class="dropdown-options" wx:if="{{isPickerVisible}}">
+          <block wx:for="{{vehicleTypes}}" wx:key="name">
+            <view class="dropdown-option" data-value="{{index}}" bindtap="bindVehicleTypeChange">{{item}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="card" bindtap="goToRequirement">
+      <view class="card-header">
+        <image class="icon" src="/images/requirement-icon.png" mode="aspectFit" />
+      </view>
+      <view class="card-body">
+        <view class="card-title-section">
+          <text class="card-title">REQUIREMENT</text>
+          <text class="card-number">189</text>
+        </view>
+        <text class="card-description">1. This is a requirement demo for Feishu...</text>
+      </view>
+    </view>
+    <view class="card" bindtap="goToTicket">
+      <view class="card-header">
+        <image class="icon" src="/images/ticket.png" mode="aspectFit" />
+      </view>
+      <view class="card-body">
+        <view class="card-title-section">
+          <text class="card-title">TICKET</text>
+          <text class="card-number">500</text>
+        </view>
+        <text class="card-description">1. This is a ticket demo for Feishu...</text>
+      </view>
+    </view>
+  </view>
+</view>

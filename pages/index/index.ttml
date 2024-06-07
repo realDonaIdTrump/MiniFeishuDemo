@@ -1,0 +1,30 @@
+<view class="intro">
+  <view class="user-info">
+      <view class="user-info-attr">
+          <!-- 小程序image组件，详情可参考https://open.feishu.cn/document/uYjL24iN/uUzNuUzNuUzN -->
+          <image class="user-info-attr-img" tt:if="{{isLogin}}" src="{{userInfo.avatarUrl}}" />
+          <!-- 使用tt:if判断当前用户是否已登录，如果当前用户已登录，那么展示用户的头像；如果未登录，则展示灰色底色 -->
+          <view tt:else class="user-info-attr-img"></view>
+      </view>
+      <view class="user-info-base">
+          <view tt:if="{{isLogin}}">
+              <view class="info-name">{{userInfo.nickName}}</view>
+              <view class="info-sign">{{userSign}}</view>
+          </view>
+          <view tt:else bindtap="toLogin">
+              {{notLogin}}
+          </view>
+      </view>
+  </view>
+
+  <view class="personal-sign">
+      <view class="personal-sign-text">
+          <span>设置你的个人签名</span>
+      </view>
+      <view >
+          <textarea class="personal-sign-textarea" bindblur="textareaBlur"></textarea>
+      </view>
+      <!-- 为按钮绑定changeSign事件，changeSign事件对应index.js中的changeSign函数 -->
+      <button bindtap="changeSign" class="personal-sign-button" type="primary" size="large ">确定</button>
+  </view>
+</view>

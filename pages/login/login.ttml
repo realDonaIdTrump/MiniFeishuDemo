@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="input-group">
+    <text>Username</text>
+    <input type="text" bindinput="bindUsernameInput" />
+  </view>
+  <view class="input-group">
+    <text>Password</text>
+    <input type="password" bindinput="bindPasswordInput" />
+  </view>
+  <view class="input-group">
+    <text>Role</text>
+    <input type="text" bindinput="bindRoleInput" />
+  </view>
+  <button bindtap="login">Login</button>
+</view>

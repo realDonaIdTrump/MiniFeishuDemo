@@ -1,0 +1,18 @@
+<view class="create-requirement-container">
+  <view class="create-requirement-title">Create Requirement</view>
+
+  <view class="input-container">
+    <input class="input" placeholder="Name" bindinput="bindNameInput" value="{{name}}" />
+  </view>
+  
+  <view class="input-container">
+    <switch checked="{{isHeading}}" bindchange="bindIsHeadingChange" />
+    <label>Is Heading</label>
+  </view>
+
+  <view class="input-container">
+    <input class="input" placeholder="Creation User" bindinput="bindCreationUserInput" value="{{creationUser}}" />
+  </view>
+
+  <button class="create-button" bindtap="createRequirement">Create Requirement</button>
+</view>

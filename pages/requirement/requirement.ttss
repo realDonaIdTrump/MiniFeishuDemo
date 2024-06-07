@@ -1,0 +1,28 @@
+.container {
+  padding: 20px;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.requirement-package {
+  display: block;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #e0e0e0;
+  text-align: center;
+}
+.float-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #1aad19;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+}

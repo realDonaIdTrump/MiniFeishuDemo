@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="title">Requirement</view>
+  <view class="requirement-package" bindtap="goToRequirementContents">
+    <text>Requirement 1</text>
+  </view>
+  <view class="requirement-package" bindtap="goToRequirementContents">
+    <text>Requirement 2</text>
+  </view>
+  <!-- 添加更多需求包 -->
+  <button class="float-button" bindtap="goToNew">+</button>
+</view>
