@@ -14,13 +14,14 @@ Page({
   loadVehicleTypes: function() {
     let that = this;
     const app = getApp();
-    const username = app.globalData.username; // 获取全局数据中的用户名
+    const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
       url: 'http://10.86.8.19:8085/server/operation?OptType=1', // URL 包含查询参数
       method: 'POST',
       header: {
-        'user': username // 使用登录时获取的用户名
+        'user': user, // 使用登录时获取的用户名
+        'Content-Type': 'application/json' // 确保内容类型为 JSON
       },
       success(res) {
         if (res.data.code === '200') {

@@ -1,15 +1,19 @@
 <view class="container">
-  <view class="input-group">
-    <text>Username</text>
-    <input type="text" bindinput="bindUsernameInput" />
+  <view class="logo-container">
+    <image class="logo" src="/images/feishu.png" mode="aspectFit" />
+  </view>
+  <view class="text-section">
+    <text class="title">Sign In</text>
+    <text class="subtitle">This is a Demo connecting Feishu and PREEvision</text>
   </view>
   <view class="input-group">
-    <text>Password</text>
-    <input type="password" bindinput="bindPasswordInput" />
+    <input type="text" placeholder="Username" bindinput="bindUsernameInput" />
   </view>
   <view class="input-group">
-    <text>Role</text>
-    <input type="text" bindinput="bindRoleInput" />
+    <input type="password" placeholder="Password" bindinput="bindPasswordInput" />
   </view>
-  <button bindtap="login">Login</button>
+  <view class="input-group">
+    <input type="text" placeholder="Role" bindinput="bindRoleInput" />
+  </view>
+  <button class="login-button" bindtap="login">Login</button>
 </view>
