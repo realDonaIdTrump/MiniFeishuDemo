@@ -1,28 +1,58 @@
 .container {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
 .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-left: 10px;
+  text-align: center;
+}
+.product-line {
+  color: white;
+  background-color: purple;
+  padding: 5px;
+  margin-left: 10px;
 }
 .requirement-package {
-  display: block;
-  padding: 20px;
-  margin: 10px 0;
-  background-color: #e0e0e0;
-  text-align: center;
+  margin-top: 20px;
 }
-.float-button {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #1aad19;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  font-size: 24px;
+.arrow{
+  width: 10px;
+  height: 10px;
+  color: blueviolet;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  position: absolute;
+  right: 20rpx;
+  margin-top: -25rpx; 
+  transform: rotate(45deg);
 }
+.requirement {
+  margin-top: 10px;
+}
+
+.requirement-block {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.category, .custom-id, .heading {
+  margin-top: 5px;
+}
+
+
