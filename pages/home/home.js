@@ -2,8 +2,8 @@ Page({
   data: {
     vehicleTypes: [],
     selectedVehicleType: 'SUV',
-    arrowDirection: 'right',  // 用于控制箭头方向
-    isPickerVisible: false  // 控制picker显示状态
+    requirementCount: 0,     // 用于显示需求数量
+    PLId: null               // 存储选中的PLId
   },
 
   onLoad: function () {
@@ -17,7 +17,7 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: 'http://10.86.8.19:8085/server/operation?OptType=1', // URL 包含查询参数
+      url: 'http://localhost:8085/server/operation?OptType=1', // 使用 localhost 作为 URL
       method: 'POST',
       header: {
         'user': user, // 使用登录时获取的用户名
@@ -40,28 +40,46 @@ Page({
   },
 
   bindVehicleTypeChange: function (e) {
+    const selectedVehicleType = this.data.vehicleTypes[e.detail.value];
     this.setData({
-      selectedVehicleType: this.data.vehicleTypes[e.currentTarget.dataset.value],
-      arrowDirection: 'right',
-      isPickerVisible: false
+      selectedVehicleType: selectedVehicleType
     });
+
+    this.updateRequirementCountAndPLId(selectedVehicleType);
   },
 
-  toggleArrowDirection: function () {
-    const newDirection = this.data.arrowDirection === 'right' ? 'down' : 'right';
-    this.setData({
-      arrowDirection: newDirection,
-      isPickerVisible: !this.data.isPickerVisible
-    });
-  },
+  updateRequirementCountAndPLId: function(selectedVehicleType) {
+    let that = this;
+    const app = getApp();
+    const user = app.globalData.user; // 获取全局数据中的用户名
 
-  hidePicker: function (e) {
-    if (this.data.isPickerVisible && !e.target.dataset.picker) {
-      this.setData({
-        arrowDirection: 'right',
-        isPickerVisible: false
-      });
-    }
+    tt.request({
+      url: 'http://localhost:8085/server/operation?OptType=1', // 使用 localhost 作为 URL
+      method: 'POST',
+      header: {
+        'user': user, // 使用登录时获取的用户名
+        'Content-Type': 'application/json' // 确保内容类型为 JSON
+      },
+      success(res) {
+        if (res.data.code === '200') {
+          const vehicleData = res.data.data.result.find(item => item.name === selectedVehicleType);
+          if (vehicleData) {
+            const requirementCount = vehicleData.list.reduce((count, pkg) => {
+              return count + pkg.requirementList.length;
+            }, 0);
+            that.setData({
+              requirementCount: requirementCount,
+              PLId: vehicleData.PLId
+            });
+          }
+        } else {
+          console.error('Failed to fetch vehicle data', res);
+        }
+      },
+      fail(err) {
+        console.error('Request failed', err);
+      }
+    });
   },
 
   goToRequirement: function () {

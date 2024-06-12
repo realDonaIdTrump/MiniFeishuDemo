@@ -33,12 +33,7 @@
   margin-top: 0; /* 确保下拉菜单紧跟在 Home 文字下方 */
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-selected {
+.picker {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -48,36 +43,8 @@
   cursor: pointer;
 }
 
-.dropdown-options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
-  z-index: 1000;
-}
-
-.dropdown-option {
-  padding: 5px; /* 调整选项的 padding */
-  cursor: pointer;
-  font-size: 12px; /* 调整文字大小 */
-}
-
-.dropdown-option:hover {
-  background-color: #f0f0f0;
-}
-
-.dropdown-text {
+.picker-text {
   font-size: 14px; /* 调整选中项的文字大小 */
-}
-
-.arrow-icon {
-  width: 16px;  /* 设置图标宽度 */
-  height: 16px;  /* 设置图标高度 */
-  margin-left: 5px;  /* 设置图标和文字之间的间距 */
-  vertical-align: middle;  /* 使图标和文字垂直居中 */
 }
 
 .content {
@@ -106,11 +73,6 @@
 .icon {
   width: 30px;
   height: 30px;
-}
-
-.star-icon {
-  width: 20px;
-  height: 20px;
 }
 
 .card-title-section {

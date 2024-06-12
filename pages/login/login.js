@@ -33,7 +33,7 @@ Page({
     const { user, password, role } = this.data;
     console.log('Logging in with:', { user, password, role }); // Debug 信息
     tt.request({
-      url: 'http://10.86.8.19:8085/server/authenticationUser',
+      url: 'http://localhost:8085/server/authenticationUser',
       method: 'POST',
       data: {
         user, // 确保我们发送了 `user` 字段
