@@ -1,7 +1,7 @@
 Page({
   data: {
     vehicleTypes: [],
-    selectedVehicleType: 'SUV',
+    selectedVehicleType: '',
     requirementCount: 0,     // 用于显示需求数量
     PLId: null               // 存储选中的PLId
   },
@@ -27,8 +27,10 @@ Page({
         if (res.data.code === '200') {
           const vehicleTypes = res.data.data.result.map(item => item.name);
           that.setData({
-            vehicleTypes
+            vehicleTypes,
+            selectedVehicleType: vehicleTypes[0] // 默认选择第一个车辆类型
           });
+          that.updateRequirementCountAndPLId(vehicleTypes[0]); // 更新需求数量和PLId
         } else {
           console.error('Failed to fetch vehicle types', res);
         }
