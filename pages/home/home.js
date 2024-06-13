@@ -86,9 +86,9 @@ Page({
 
   goToRequirement: function () {
     tt.navigateTo({
-      url: '/pages/requirement/requirement'
+      url: `/pages/requirement/requirement?vehicleType=${this.data.selectedVehicleType}&PLId=${this.data.PLId}`
     });
-  },
+  },  
 
   goToTicket: function () {
     tt.navigateTo({

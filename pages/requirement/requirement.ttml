@@ -1,19 +1,62 @@
 <view class="container">
   <view class="header">
-    <image class="icon" src="green-folder-icon.png" />
-    <text class="title">Requirement</text>
-    <text class="product-line">{{productLine}}</text> 
+    <image class="icon" src="/images/requirement-icon.png" mode="aspectFit" />
+    <text class="title">Requirement <text class="vehicle-type">{{vehicleType}}</text></text>
   </view>
-  <view class="requirement-package" wx:for="{{requirementPackages}}" wx:key="index">
-    <text>{{item.packageName}}</text>
-    <!-- <view class="arrow" bindtap="toggleList" data-index="{{index}}"></view> -->
-    <view class="requirement"  wx:for="{{item.requirements}}" wx:key="index">
-      <view class="requirement-block">
-        <text>{{item.requirementName}}</text>
-        <view class="category">Category</view>
-        <input class="custom-id" placeholder="Custom ID"/>
-        <text class="heading">Heading</text>
+  <view class="tabs">
+    <view class="tab" bindtap="switchTab" data-tab="pool">Pool</view>
+    <view class="tab" bindtap="switchTab" data-tab="status">Status</view>
+  </view>
+  <view class="content">
+    <block wx:for="{{requirementPackages}}" wx:key="requirementPackageName">
+      <view class="requirement-package">
+        <view class="package-header">
+          <text class="package-title">{{item.requirementPackageName}}</text>
+        </view>
+        <block wx:for="{{item.requirementList}}" wx:key="requirementXMIID">
+          <view class="requirement-card">
+            <view class="requirement-header" bindtap="toggleRequirement" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
+              <view class="requirement-info">
+                <text class="requirement-name">{{item.requirementName}}</text>
+                <text class="last-modified-time">Last Modified: {{item.lastModifiedTime}}</text>
+              </view>
+              <image class="dropdown-icon" src="{{item.expanded ? '/images/up-arrow.png' : '/images/down-arrow.png'}}" mode="aspectFit" />
+            </view>
+            <block wx:if="{{item.expanded}}">
+              <view class="requirement-details">
+                <view class="requirement-body">
+                  <text class="requirement-id">Custom ID: {{item.customId}}</text>
+                  <view class="heading-section">
+                    <text class="requirement-heading">Heading</text>
+                    <checkbox class="requirement-checkbox" value="{{item.isHeading}}" checked="{{item.isHeading}}" disabled />
+                  </view>
+                  <text class="responsible">Responsible: <text class="responsible-name">{{item.responsible}}</text></text>
+                  <text class="last-modified-user">By: {{item.lastModifiedUser}}</text>
+                </view>
+                <view class="children-header" bindtap="toggleChildren" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
+                  <text>Children</text>
+                  <image class="dropdown-icon" src="{{item.childrenExpanded ? '/images/up-arrow.png' : '/images/down-arrow.png'}}" mode="aspectFit" />
+                </view>
+                <block wx:if="{{item.childrenExpanded}}">
+                  <block wx:for="{{item.children}}" wx:key="requirementXMIID">
+                    <view class="requirement-child">
+                      <view class="child-requirement-header">
+                        <text class="child-requirement-name">{{child.requirementName}}</text>
+                        <view class="child-requirement-details">
+                          <text class="child-custom-id">Custom ID: {{child.customId}}</text>
+                          <text class="child-responsible">Responsible: <text class="responsible-name">{{child.responsible}}</text></text>
+                          <text class="child-last-modified-user">By: {{child.lastModifiedUser}}</text>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </block>
+              </view>
+            </block>
+          </view>
+        </block>
       </view>
-    </view>
+    </block>
+    <button class="add-requirement" bindtap="goToNewRequirement">+</button>
   </view>
 </view>

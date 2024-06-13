@@ -1,58 +1,215 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+  padding: 20px;
 }
 
 .header {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.vehicle-type {
+  background-color: #6C63FF;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab {
+  margin-right: 20px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: #6C63FF;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  border-bottom: 2px solid #6C63FF;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.requirement-package {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.package-header {
+  margin-bottom: 10px;
+}
+
+.package-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.requirement-card {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.requirement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.requirement-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.requirement-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.last-modified-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.dropdown-icon {
   width: 20px;
   height: 20px;
 }
 
-.title {
-  font-size: 20px;
+.requirement-details {
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.requirement-body {
+  margin-bottom: 10px;
+}
+
+.requirement-id {
+  font-size: 14px;
+  color: #666;
+}
+
+.heading-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.requirement-heading {
+  font-size: 14px;
+  color: #666;
+  margin-right: 5px;
+}
+
+.requirement-checkbox {
+  margin: 0;
+}
+
+.responsible {
+  font-size: 14px;
+  color: #666;
+}
+
+.responsible-name {
   font-weight: bold;
-  margin-left: 10px;
-  text-align: center;
 }
-.product-line {
-  color: white;
-  background-color: purple;
-  padding: 5px;
-  margin-left: 10px;
+
+.last-modified-user {
+  font-size: 12px;
+  color: #999;
 }
-.requirement-package {
-  margin-top: 20px;
-}
-.arrow{
-  width: 10px;
-  height: 10px;
-  color: blueviolet;
-  border-top: 1px solid #999;
-  border-right: 1px solid #999;
-  position: absolute;
-  right: 20rpx;
-  margin-top: -25rpx; 
-  transform: rotate(45deg);
-}
-.requirement {
+
+.children-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 
-.requirement-block {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 5px;
+.requirement-child {
+  margin-left: 20px;
 }
 
-.category, .custom-id, .heading {
-  margin-top: 5px;
+.child-requirement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
+.child-requirement-name {
+  font-size: 14px;
+  color: #666;
+}
 
+.child-requirement-details {
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.child-custom-id {
+  font-size: 12px;
+  color: #666;
+}
+
+.child-responsible {
+  font-size: 12px;
+  color: #666;
+}
+
+.child-last-modified-user {
+  font-size: 12px;
+  color: #999;
+}
+
+.add-requirement {
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
