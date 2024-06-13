@@ -27,7 +27,7 @@
     </view>
     <view class="card" bindtap="goToTicket">
       <view class="card-header">
-        <image class="icon" src="/images/ticket-icon.png" mode="aspectFit" />
+        <image class="icon" src="/images/ticket.png" mode="aspectFit" />
       </view>
       <view class="card-body">
         <view class="card-title-section">
