@@ -17,7 +17,7 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: 'http://localhost:8085/server/operation?OptType=1', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation?OptType=1', // 使用 localhost 作为 URL
       method: 'POST',
       header: {
         'user': user, // 使用登录时获取的用户名
@@ -56,7 +56,7 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: 'http://localhost:8085/server/operation?OptType=1', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation?OptType=1', // 使用 localhost 作为 URL
       method: 'POST',
       header: {
         'user': user, // 使用登录时获取的用户名
