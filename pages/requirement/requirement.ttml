@@ -6,8 +6,8 @@
   </view>
   <view class="requirement-package" wx:for="{{requirementPackages}}" wx:key="index">
     <text>{{item.packageName}}</text>
-    <view class="arrow" bindtap="toggleList" data-index="{{index}}"></view>
-    <view class="requirement" wx:if="{{item.show}}" wx:for="{{item.requirements}}" wx:key="index">
+    <!-- <view class="arrow" bindtap="toggleList" data-index="{{index}}"></view> -->
+    <view class="requirement"  wx:for="{{item.requirements}}" wx:key="index">
       <view class="requirement-block">
         <text>{{item.requirementName}}</text>
         <view class="category">Category</view>

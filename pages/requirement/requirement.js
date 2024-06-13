@@ -10,10 +10,10 @@ Page({
           {
             requirementName: 'Requirement 2'
           }
-          // 更多的需求...
+         
         ]
       },
-      // 更多的需求包...
+      
     ],
     productLine: 'SUV' // 新添加的属性
   },
@@ -27,7 +27,7 @@ Page({
       success: function(res) {
         that.setData({
           requirementPackages: res.data ,// 假设返回的数据是你需要的格式
-          productLine: res.data.productLine // 更新 productLine 的值
+          // productLine: res.data.productLine // 更新 productLine 的值
         });
       },
       fail: function() {
@@ -36,13 +36,13 @@ Page({
     });
   },
 
-  toggleList: function(e) {
-    var index = e.currentTarget.dataset.index;
-    var key = 'requirementPackages[' + index + '].show';
-    this.setData({
-      [key]: !this.data.requirementPackages[index].show
-    });
-  },
+  // toggleList: function(e) {
+  //   var index = e.currentTarget.dataset.index;
+  //   var key = 'requirementPackages[' + index + '].show';
+  //   this.setData({
+  //     [key]: !this.data.requirementPackages[index].show
+  //   });
+  // },
   goToNew: function () {
     tt.navigateTo({
       url: '/pages/new/new'

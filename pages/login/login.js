@@ -6,9 +6,9 @@ App({
 
 Page({
   data: {
-    user: '',
-    password: '',
-    role: ''
+    user: 'bruce',
+    password: 'bruce',
+    role: 'API Admin Role'
   },
 
   bindUsernameInput: function(e) {
@@ -31,9 +31,10 @@ Page({
 
   login: function() {
     const { user, password, role } = this.data;
+    var app = getApp();
     console.log('Logging in with:', { user, password, role }); // Debug 信息
     tt.request({
-      url: 'http://localhost:8085/server/authenticationUser',
+      url: app.globalData.apiUrl + '/server/authenticationUser',
       method: 'POST',
       data: {
         user, // 确保我们发送了 `user` 字段
