@@ -17,8 +17,11 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: app.globalData.apiUrl + '/server/operation?OptType=1', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation', // 使用 localhost 作为 URL
       method: 'POST',
+      params: {
+        OptType:'getComLayer',
+      },
       header: {
         'user': user, // 使用登录时获取的用户名
         'Content-Type': 'application/json' // 确保内容类型为 JSON
@@ -56,8 +59,11 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: app.globalData.apiUrl + '/server/operation?OptType=1', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation', // 使用 localhost 作为 URL
       method: 'POST',
+      params: {
+        OptType:'getComLayer',
+      },
       header: {
         'user': user, // 使用登录时获取的用户名
         'Content-Type': 'application/json' // 确保内容类型为 JSON

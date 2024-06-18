@@ -13,15 +13,17 @@ Page({
   },
 
   loadRequirements: function(apiUrl, user, PLId) {
-    let that = this;
     tt.request({
-      url: apiUrl + '/server/operation?OptType=1',
+      url: apiUrl + '/server/operation',
       method: 'POST',
+      params: {
+        OptType:'getComLayer',
+      },
       header: {
         'user': user,
         'Content-Type': 'application/json'
       },
-      success(res) {
+      success: (res) => {
         if (res.data.code === '200') {
           const vehicleData = res.data.data.result.find(item => item.PLId === PLId);
           if (vehicleData) {
@@ -29,11 +31,11 @@ Page({
               ...pkg,
               requirementList: pkg.requirementList.map(req => ({
                 ...req,
-                expanded: false,
-                childrenExpanded: false
+                expanded: true,
+                childrenExpanded: true
               }))
             }));
-            that.setData({
+            this.setData({
               requirementPackages: requirementPackages
             });
           }
@@ -41,41 +43,20 @@ Page({
           console.error('Failed to fetch requirements', res);
         }
       },
-      fail(err) {
+      fail: (err) => {
         console.error('Request failed', err);
       }
     });
   },
 
-  toggleRequirement: function(e) {
+  toggleExpansion: function(e, key) {
     const packageIndex = e.currentTarget.dataset.packageIndex;
     const requirementIndex = e.currentTarget.dataset.requirementIndex;
     const updatedPackages = this.data.requirementPackages.map((pkg, i) => {
       if (i === packageIndex) {
         const updatedRequirementList = pkg.requirementList.map((req, j) => ({
           ...req,
-          expanded: j === requirementIndex ? !req.expanded : req.expanded
-        }));
-        return {
-          ...pkg,
-          requirementList: updatedRequirementList
-        };
-      }
-      return pkg;
-    });
-    this.setData({
-      requirementPackages: updatedPackages
-    });
-  },
-
-  toggleChildren: function(e) {
-    const packageIndex = e.currentTarget.dataset.packageIndex;
-    const requirementIndex = e.currentTarget.dataset.requirementIndex;
-    const updatedPackages = this.data.requirementPackages.map((pkg, i) => {
-      if (i === packageIndex) {
-        const updatedRequirementList = pkg.requirementList.map((req, j) => ({
-          ...req,
-          childrenExpanded: j === requirementIndex ? !req.childrenExpanded : req.childrenExpanded
+          [key]: j === requirementIndex ? !req[key] : req[key]
         }));
         return {
           ...pkg,
@@ -90,6 +71,8 @@ Page({
   },
 
   goToNewRequirement: function () {
-    console.log('Navigating to add new requirement');
+    tt.navigateTo({
+      url: '/pages/new/new'
+    });
   }
 });
