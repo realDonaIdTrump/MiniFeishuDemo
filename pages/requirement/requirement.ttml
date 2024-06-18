@@ -12,6 +12,7 @@
       <view class="requirement-package">
         <view class="package-header">
           <text class="package-title">{{item.requirementPackageName}}</text>
+          <image class="dropdown-icon-header" src="{{item.expanded ? '/images/arrow-right.png' : '/images/arrow-down.png'}}" mode="aspectFit" />    
         </view>
         <block wx:for="{{item.requirementList}}" wx:key="requirementXMIID">
           <view class="requirement-card">
@@ -20,7 +21,7 @@
                 <text class="requirement-name">{{item.requirementName}}</text>
                 <text class="last-modified-time">Last Modified: {{item.lastModifiedTime}}</text>
               </view>
-              <image class="dropdown-icon" src="{{item.expanded ? '/images/up-arrow.png' : '/images/down-arrow.png'}}" mode="aspectFit" />
+                <image class="dropdown-icon" src="{{item.expanded ? '/images/arrow-down.png' : '/images/arrow-right.png'}}" mode="aspectFit" />
             </view>
             <block wx:if="{{item.expanded}}">
               <view class="requirement-details">
@@ -33,9 +34,9 @@
                   <text class="responsible">Responsible: <text class="responsible-name">{{item.responsible}}</text></text>
                   <text class="last-modified-user">By: {{item.lastModifiedUser}}</text>
                 </view>
-                <view class="children-header" bindtap="toggleChildren" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
+                <view class="children-header" bindtap="toggleExpansion" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
                   <text>Children</text>
-                  <image class="dropdown-icon" src="{{item.childrenExpanded ? '/images/up-arrow.png' : '/images/down-arrow.png'}}" mode="aspectFit" />
+                  <image class="dropdown-icon" src="{{item.childrenExpanded ? '/images/arrow-down.png' : '/images/arrow-right.png'}}" mode="aspectFit" />
                 </view>
                 <block wx:if="{{item.childrenExpanded}}">
                   <block wx:for="{{item.children}}" wx:key="requirementXMIID">
