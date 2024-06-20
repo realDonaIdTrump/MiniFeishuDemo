@@ -17,14 +17,12 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: app.globalData.apiUrl + '/server/operation', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation/getRequirement', // 使用 localhost 作为 URL
       method: 'POST',
-      params: {
-        OptType:'getComLayer',
-      },
       header: {
         'user': user, // 使用登录时获取的用户名
-        'Content-Type': 'application/json' // 确保内容类型为 JSON
+        'Content-Type': 'application/json' ,// 确保内容类型为 JSON
+        'Authorization' : 'Bearer ' + app.globalData.token
       },
       success(res) {
         if (res.data.code === '200') {
@@ -36,10 +34,12 @@ Page({
           that.updateRequirementCountAndPLId(vehicleTypes[0]); // 更新需求数量和PLId
         } else {
           console.error('Failed to fetch vehicle types', res);
+          // console.log(url);
         }
       },
       fail(err) {
         console.error('Request failed', err);
+        // console.log(url);
       }
     });
   },
@@ -59,17 +59,16 @@ Page({
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
-      url: app.globalData.apiUrl + '/server/operation', // 使用 localhost 作为 URL
+      url: app.globalData.apiUrl + '/server/operation/getRequirement', // 使用 localhost 作为 URL
       method: 'POST',
-      params: {
-        OptType:'getComLayer',
-      },
       header: {
         'user': user, // 使用登录时获取的用户名
-        'Content-Type': 'application/json' // 确保内容类型为 JSON
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer ' + app.globalData.token // 确保内容类型为 JSON
       },
       success(res) {
         if (res.data.code === '200') {
+          console.log(res);
           const vehicleData = res.data.data.result.find(item => item.name === selectedVehicleType);
           if (vehicleData) {
             const requirementCount = vehicleData.list.reduce((count, pkg) => {
@@ -82,10 +81,12 @@ Page({
           }
         } else {
           console.error('Failed to fetch vehicle data', res);
+          // console.log(url);
         }
       },
       fail(err) {
         console.error('Request failed', err);
+        // console.log(url);
       }
     });
   },

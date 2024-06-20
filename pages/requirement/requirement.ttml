@@ -10,7 +10,7 @@
   <view class="content">
     <block wx:for="{{requirementPackages}}" wx:key="requirementPackageName">
       <view class="requirement-package">
-        <view class="package-header">
+        <view class="package-header"  bindtap="togglePackageExpansion" data-package-index="{{index}}">
           <text class="package-title">{{item.requirementPackageName}}</text>
           <image class="dropdown-icon-header" src="{{item.expanded ? '/images/arrow-right.png' : '/images/arrow-down.png'}}" mode="aspectFit" />    
         </view>
@@ -34,12 +34,13 @@
                   <text class="responsible">Responsible: <text class="responsible-name">{{item.responsible}}</text></text>
                   <text class="last-modified-user">By: {{item.lastModifiedUser}}</text>
                 </view>
-                <view class="children-header" bindtap="toggleExpansion" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
+                <view class="children-header" bindtap="toggleChildrenExpansion" data-package-index="{{index}}" data-requirement-index="{{subindex}}">
                   <text>Children</text>
                   <image class="dropdown-icon" src="{{item.childrenExpanded ? '/images/arrow-down.png' : '/images/arrow-right.png'}}" mode="aspectFit" />
                 </view>
                 <block wx:if="{{item.childrenExpanded}}">
                   <block wx:for="{{item.children}}" wx:key="requirementXMIID">
+                   <block> <!-- 添加了一个block元素 -->
                     <view class="requirement-child">
                       <view class="child-requirement-header">
                         <text class="child-requirement-name">{{child.requirementName}}</text>
@@ -50,6 +51,7 @@
                         </view>
                       </view>
                     </view>
+                   </block> <!-- 结束block元素 -->
                   </block>
                 </block>
               </view>

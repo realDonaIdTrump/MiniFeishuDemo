@@ -1,6 +1,7 @@
 App({
   globalData: {
-    user: '' // 全局保存用户名
+    user: '' ,// 全局保存用户名
+    token: '' // 全局保存token
   }
 });
 
@@ -45,6 +46,8 @@ Page({
         if (res.statusCode === 200) {
           const app = getApp();
           app.globalData.user = user; // 将用户名保存到全局数据中
+          app.globalData.token = res.data.data;
+          console.log(app.globalData.token);
           tt.navigateTo({
             url: '/pages/home/home'
           });
