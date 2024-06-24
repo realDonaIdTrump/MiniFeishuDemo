@@ -1,5 +1,14 @@
 <view class="container">
-  <view class="title">Requirement Contents</view>
-  <button bindtap="goToHome">Home</button>
-  <button bindtap="goToRequirement">Requirement</button>
+  <view class="title">{{ requirementName }}</view>
+
+  <view class="customId">Custom ID: {{ customId }}</view>
+  <view class="isHeading">Is Heading: {{ isHeading }}</view>
+  <view class="responsible">Responsible: {{ responsible }}</view>
+  <view class="lastModifiedTime">Last Modified Time: {{ lastModifiedTime }}</view>
+  <view class="lastModifiedUser">Last Modified User: {{ lastModifiedUser }}</view>
+  <view class="buttons">
+    <button bindtap="goToHome">Home</button>
+    <button bindtap="goToRequirement">Requirement</button>
+  </view>
+  <!-- 其他两个<view>元素 -->
 </view>

@@ -80,5 +80,14 @@ Page({
     tt.navigateTo({
       url: '/pages/new/new'
     });
+  },
+
+  goToRequirementContent: function (e) {
+    // console.log(e.currentTarget.dataset);
+    const requirement = e.currentTarget.dataset.item;
+    const requirementStr = encodeURIComponent(JSON.stringify(requirement));
+    tt.navigateTo({
+      url: '/pages/requirementContents/requirementContents?requirement=' + requirementStr
+    });
   }
 });

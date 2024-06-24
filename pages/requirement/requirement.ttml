@@ -12,14 +12,14 @@
 
   <block wx:for="{{requirementPackages}}" wx:key="index">
     <view class="package">
-      <view class="package-header" bindtap="togglePackageExpansion" data-index="{{index}}">
+      <view class="package-header">
         <text>{{item.requirementPackageName}}</text>
-        <text>{{item.expanded ? '-' : '+'}}</text>
+        <text bindtap="togglePackageExpansion" data-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
       </view>
       <view wx:if="{{item.expanded}}">
         <block wx:for="{{item.requirementList}}" wx:key="index">
           <view class="requirement">
-            <view class="requirement-header" bindtap="toggleRequirementExpansion" data-package-index="{{index}}" data-requirement-index="{{index}}">
+            <view class="requirement-header" catchtap="goToRequirementContent"  data-item="{{item}}">
               <view class="requirement-info">
                 <image class="requirement-icon" src="/assets/requirement-icon.png" mode="aspectFit"></image>
                 <text class="requirement-name">{{item.requirementName}}</text>
@@ -34,7 +34,7 @@
                 </view>
                 <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text>
               </view>
-              <text>{{item.expanded ? '-' : '+'}}</text>
+              <text catchtap="toggleRequirementExpansion" data-package-index="{{index}}" data-requirement-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
             </view>
             <view wx:if="{{item.expanded}}" class="children">
               <import src="requirementChild.ttml" />
@@ -46,7 +46,7 @@
     </view>
   </block>
 
-  <view class="add-requirement" bindtap="goToNewRequirement">
+  <!-- <view class="add-requirement" bindtap="goToNewRequirement">
     <text>+</text>
-  </view>
+  </view> -->
 </view>

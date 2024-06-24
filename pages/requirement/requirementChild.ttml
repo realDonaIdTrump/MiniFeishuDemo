@@ -1,7 +1,7 @@
 <template name="requirementChildTemplate">
   <block wx:for="{{children}}" wx:key="index">
     <view class="child-requirement">
-      <view class="child-requirement-header" bindtap="toggleChildExpansion" data-package-index="{{packageIndex}}" data-requirement-index="{{requirementIndex}}" data-child-index="{{index}}">
+      <view class="child-requirement-header" catchtap="goToRequirementContent" data-item="{{item}}">
         <view class="child-requirement-info">
           <text class="requirement-name">{{item.requirementName}}</text>
           <text class="custom-id">Custom ID: {{item.customId}}</text>
@@ -15,7 +15,7 @@
           </view>
           <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text>
         </view>
-        <text>{{item.expanded ? '-' : '+'}}</text>
+        <text catchtap="toggleChildExpansion" data-package-index="{{packageIndex}}" data-requirement-index="{{requirementIndex}}" data-child-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
       </view>
       <view wx:if="{{item.expanded}}" class="children">
         <import src="requirementChild.ttml" />

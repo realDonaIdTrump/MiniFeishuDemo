@@ -1,10 +1,25 @@
 Page({
   data: {
-    // 这里可以添加需求内容页面所需的数据
+    requirementName :'',
+    customId:'',
+    isHeading:'',
+    responsible:'',
+    lastModifiedTime:'',
+    lastModifiedUser:''
   },
 
-  onLoad: function () {
-    console.log('需求内容页面加载完成'); // 需求内容页面加载调试信息
+  onLoad: function (options) {
+  const requirementStr = decodeURIComponent(options.requirement);
+  const requirement = JSON.parse(requirementStr);
+  console.log(requirement);
+  this.setData({
+    requirementName: requirement.requirementName,
+    customId:requirement.customId,
+    isHeading:requirement.isHeading,
+    responsible:requirement.responsible,
+    lastModifiedTime:requirement.lastModifiedTime,
+    lastModifiedUser:requirement.lastModifiedUser
+  });
   },
 
   goToHome: function () {
