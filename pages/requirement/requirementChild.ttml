@@ -13,7 +13,7 @@
             <text class="label">Heading:</text>
             <checkbox checked="{{item.isHeading}}" disabled></checkbox>
           </view>
-          <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text>
+          <!-- <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text> -->
         </view>
         <text catchtap="toggleChildExpansion" data-package-index="{{packageIndex}}" data-requirement-index="{{requirementIndex}}" data-child-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
       </view>
