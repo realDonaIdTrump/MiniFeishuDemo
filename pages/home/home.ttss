@@ -91,7 +91,7 @@
 .card-number {
   font-size: 14px;
   font-weight: bold;
-  color: #4e9af1;
+  color: #B70032;
   margin-left: auto;
 }
 
