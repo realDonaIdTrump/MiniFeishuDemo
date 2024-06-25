@@ -21,7 +21,7 @@
 }
 
 .vehicle-type {
-  background-color: #6C63FF;
+  background-color: #B70032;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
@@ -35,7 +35,7 @@
 
 .tab {
   font-size: 18px;
-  color: #6C63FF;
+  color: #B70032;
 }
 
 .package {
@@ -126,7 +126,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6C63FF;
+  background-color: #B70032;
   color: #fff;
   font-size: 30px;
   border-radius: 50%;

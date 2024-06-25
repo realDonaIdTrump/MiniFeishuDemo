@@ -48,7 +48,7 @@ button {
   display: block;
   padding: 10px;
   margin: 10px 0;
-  background-color: #1aad19;
+  background-color: #B70032;
   color: white;
   text-align: center;
   border: none;
@@ -58,7 +58,7 @@ button {
 }
 
 button:hover {
-  background-color: #138f16;
+  background-color: #B70032;
 }
 
 .buttons {
