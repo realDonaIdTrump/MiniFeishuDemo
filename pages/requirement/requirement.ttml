@@ -31,8 +31,9 @@
                 <view class="heading-wrapper">
                   <text class="label">Heading:</text>
                   <checkbox checked="{{item.isHeading}}" disabled></checkbox>
+                  <!-- <icon type="{{isHeading ? 'success' : 'cancel'}}" class="icon" /> -->
                 </view>
-                <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text>
+                <!-- <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text> -->
               </view>
               <text catchtap="toggleRequirementExpansion" data-package-index="{{index}}" data-requirement-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
             </view>

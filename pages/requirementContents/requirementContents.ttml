@@ -1,14 +1,39 @@
 <view class="container">
   <view class="title">{{ requirementName }}</view>
+  <view class="divider"></view>
 
-  <view class="customId">Custom ID: {{ customId }}</view>
-  <view class="isHeading">Is Heading: {{ isHeading }}</view>
-  <view class="responsible">Responsible: {{ responsible }}</view>
-  <view class="lastModifiedTime">Last Modified Time: {{ lastModifiedTime }}</view>
-  <view class="lastModifiedUser">Last Modified User: {{ lastModifiedUser }}</view>
+  <view class="info">
+    <text>Custom ID:</text>
+    <text class="value">{{ customId }}</text>
+  </view>
+  <view class="divider"></view>
+
+  <view class="info">
+    <text>Is Heading:</text>
+    <icon type="{{isHeading ? 'success' : 'cancel'}}" class="icon" />
+  </view>
+  <view class="divider"></view>
+
+  <view class="info">
+    <text>Responsible:</text>
+    <text class="value">{{ responsible }}</text>
+  </view>
+  <view class="divider"></view>
+
+  <view class="info">
+    <text>Last Modified Time:</text>
+    <text class="value">{{ lastModifiedTime }}</text>
+  </view>
+  <view class="divider"></view>
+
+  <view class="info">
+    <text>Last Modified User:</text>
+    <text class="value">{{ lastModifiedUser }}</text>
+  </view>
+  <view class="divider"></view>
+
   <view class="buttons">
     <button bindtap="goToHome">Home</button>
     <button bindtap="goToRequirement">Requirement</button>
   </view>
-  <!-- 其他两个<view>元素 -->
 </view>
