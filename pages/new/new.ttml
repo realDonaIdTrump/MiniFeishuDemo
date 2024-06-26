@@ -1,4 +1,19 @@
 <view class="container">
-  <view class="title">New</view>
-  <button bindtap="createRequirement">Create Requirement</button>
+  <view class="input-group">
+    <input type="text" placeholder="title" bindinput="bindTitleInput" />
+  </view>
+  <view class="input-group">
+    <input type="text" placeholder="Category" bindinput="bindCategoryInput" />
+  </view>
+  <view class="input-group">
+    <picker mode="selector" range="{{responsibleArray}}" bindchange="bindResponsibleChange">
+      <view class="picker">
+        负责人: {{responsibleArray[responsibleIndex]}}
+      </view>
+    </picker>
+  </view>
+  <view class="input-group">
+    <input type="text" placeholder="Description" bindinput="bindDescriptionInput" />
+  </view>
+  <button bindtap="createRequirement">createRequirement</button>
 </view>

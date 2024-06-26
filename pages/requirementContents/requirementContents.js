@@ -27,7 +27,11 @@ Page({
       url: '/pages/home/home'
     });
   },
-
+  goToNewRequirement: function () {
+    tt.navigateTo({
+      url: '/pages/new/new'
+    });
+  },
   goToRequirement: function () {
     tt.navigateTo({
       url: '/pages/requirement/requirement'

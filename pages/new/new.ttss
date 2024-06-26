@@ -1,16 +1,40 @@
 .container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 设置容器高度为视口高度 */
 }
+
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.input-group {
+  flex: 1; /* 让输入组占据剩余的空间 */
+}
+.add-requirement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B70032;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
 button {
   display: block;
   padding: 10px;
   margin: 10px 0;
-  background-color: #1aad19;
+  background-color: #B70032;
   color: white;
-  text-align: center;
+  text-align: center; 
 }
