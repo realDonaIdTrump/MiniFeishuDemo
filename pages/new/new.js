@@ -8,8 +8,10 @@ Page({
     responsibleIndex: 0,
   },
 
-  onLoad: function () {
-    console.log('新需求页面加载完成'); // 新需求页面加载调试信息
+  onLoad: function (options) {
+    const requirementXmid = options.requirementXmid;
+    const app = getApp();
+    this.createRequirement(app.globalData.apiUrl, app.globalData.token ,requirementXmid);
   },
 
   bindTitleInput: function(e) {
@@ -36,9 +38,25 @@ Page({
     });
   },
 
-  createRequirement: function () {
-    tt.navigateTo({
-      url: '/pages/createRequirement/createRequirement'
-    });
+  createRequirement: function (apiUrl,token,requirementXmid) {
+    tt.request({
+      url: apiUrl + '/server/createRequirement',
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      data: {
+        title: this.data.title,
+        mofType: 'requirementslayer.Requirement',
+        Category: this.data.Category,
+        Responsible: this.data.responsibleArray[this.data.responsibleIndex],
+        Description: this.data.Description,
+        requirementXmid :requirementXmid
+      },
+      success (res) {
+        console.log(res.data)
+      }
+    })
   }
 });

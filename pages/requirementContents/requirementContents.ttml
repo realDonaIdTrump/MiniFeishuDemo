@@ -36,7 +36,7 @@
     <button bindtap="goToHome">Home</button>
     <button bindtap="goToRequirement">Requirement</button>
   </view>
-   <view class="add-requirement" bindtap="goToNewRequirement">
+   <view class="add-requirement" bindtap="goToNewRequirement" data-requirementXmid="{{requirementXmid}}">
     <text>+</text>
   </view>
 </view>

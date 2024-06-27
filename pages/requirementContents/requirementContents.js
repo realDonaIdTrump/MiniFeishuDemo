@@ -5,18 +5,19 @@ Page({
     isHeading:'',
     responsible:'',
     lastModifiedTime:'',
-    lastModifiedUser:''
+    lastModifiedUser:'',
+    requirementXmid:''
   },
 
   onLoad: function (options) {
   const requirementStr = decodeURIComponent(options.requirement);
   const requirement = JSON.parse(requirementStr);
-  console.log(requirement);
   this.setData({
     requirementName: requirement.requirementName,
     customId:requirement.customId,
     isHeading:requirement.isHeading,
     responsible:requirement.responsible,
+    requirementXmid:requirement.requirementXMIID,
     lastModifiedTime:requirement.lastModifiedTime,
     lastModifiedUser:requirement.lastModifiedUser
   });
@@ -27,9 +28,10 @@ Page({
       url: '/pages/home/home'
     });
   },
-  goToNewRequirement: function () {
+  goToNewRequirement: function (e) {
+    const requirementXmid = e.currentTarget.dataset.requirementxmid;
     tt.navigateTo({
-      url: '/pages/new/new'
+      url: '/pages/new/new?requirementXmid=' + requirementXmid
     });
   },
   goToRequirement: function () {

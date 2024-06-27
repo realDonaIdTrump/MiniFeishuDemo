@@ -82,9 +82,11 @@ Page({
     });
   },
 
+  
   goToRequirementContent: function (e) {
     // console.log(e.currentTarget.dataset);
     const requirement = e.currentTarget.dataset.item;
+    console.log(requirement);
     const requirementStr = encodeURIComponent(JSON.stringify(requirement));
     tt.navigateTo({
       url: '/pages/requirementContents/requirementContents?requirement=' + requirementStr
