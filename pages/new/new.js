@@ -6,6 +6,8 @@ Page({
     Description: '',
     responsibleArray: ['选项1', '选项2', '选项3'], // 这里填写你的选项
     responsibleIndex: 0,
+    customId: '',
+    isHeading: false
   },
 
   onLoad: function (options) {
@@ -29,7 +31,17 @@ Page({
       Category: e.detail.value
     });
   },
+  bindCustomIdInput: function(e) {
+    this.setData({
+      customId: e.detail.value
+    })
+  },
 
+  bindIsHeadingChange: function(e) {
+    this.setData({
+      isHeading: e.detail.value
+    })
+  },
   bindResponsibleChange: function(e) {
     this.setData({
       responsibleIndex: e.detail.value
@@ -79,7 +91,9 @@ Page({
           responsible: ["1214822"]
         },
         Description: this.data.Description,
-        requirementXmid: this.data.requirementXmid
+        requirementXmid: this.data.requirementXmid,
+        customId: this.data.customId,
+        isHeading : this.data.isHeading
       },
       success: (res) => {
         console.log('createRequirement success:', res.data);

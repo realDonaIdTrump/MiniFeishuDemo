@@ -8,12 +8,18 @@
   <view class="input-group">
     <picker mode="selector" range="{{responsibleArray}}" bindchange="bindResponsibleChange">
       <view class="picker">
-        负责人: {{responsibleArray[responsibleIndex]}}
+        Response: {{responsibleArray[responsibleIndex]}}
       </view>
     </picker>
   </view>
   <view class="input-group">
     <input type="text" placeholder="Description" bindinput="bindDescriptionInput" />
+  </view>
+  <view class="input-group">
+    <input type="text" placeholder="customId" bindinput="bindCustomIdInput" />
+  </view>
+  <view class="input-group">
+    <checkbox checked="{{isHeading}}" bindchange="bindIsHeadingChange">isHeading</checkbox>
   </view>
   <button bindtap="createRequirement">createRequirement</button>
 </view>
