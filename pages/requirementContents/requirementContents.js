@@ -4,6 +4,7 @@ Page({
     customId:'',
     isHeading:'',
     responsible:'',
+    description:'',
     lastModifiedTime:'',
     lastModifiedUser:'',
     requirementXmid:''
@@ -17,6 +18,7 @@ Page({
     customId:requirement.customId,
     isHeading:requirement.isHeading,
     responsible:requirement.responsible,
+    // description:requirement.description,
     requirementXmid:requirement.requirementXMIID,
     lastModifiedTime:requirement.lastModifiedTime,
     lastModifiedUser:requirement.lastModifiedUser
@@ -36,6 +38,12 @@ Page({
   },
   goToRequirement: function () {
     tt.navigateTo({
+      url: '/pages/requirement/requirement'
+    });
+  },
+  goToDescriptionPage: function () {
+    tt.navigateTo({
+      // url: '/pages/description/description'
       url: '/pages/requirement/requirement'
     });
   }

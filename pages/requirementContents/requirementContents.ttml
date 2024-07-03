@@ -20,6 +20,12 @@
   </view>
   <view class="divider"></view>
 
+  <view class="info" bindtap="goToDescriptionPage">
+    <text>Description:</text>
+    <editor class="value" readOnly="true">{{ description }}</editor>
+  </view>
+  <view class="divider"></view>
+
   <view class="info">
     <text>Last Modified Time:</text>
     <text class="value">{{ lastModifiedTime }}</text>

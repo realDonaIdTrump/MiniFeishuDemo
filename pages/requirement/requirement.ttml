@@ -24,6 +24,7 @@
                 <image class="requirement-icon" src="/assets/requirement-icon.png" mode="aspectFit"></image>
                 <text class="requirement-name">{{item.requirementName}}</text>
                 <text class="custom-id">Custom ID: {{item.customId}}</text>
+                <!-- <text class="description-id">description: {{item.description}}</text> -->
                 <view class="responsible-wrapper">
                   <text class="label">Responsible:</text>
                   <view class="responsible">{{item.responsible}}</view>
