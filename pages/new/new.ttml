@@ -6,9 +6,9 @@
     <input type="text" placeholder="Category" bindinput="bindCategoryInput" />
   </view>
   <view class="input-group">
-    <picker mode="selector" range="{{responsibleArray}}" bindchange="bindResponsibleChange">
+    <picker mode="selector" range="{{responsibleNames}}" bindchange="bindResponsibleChange">
       <view class="picker">
-        Response: {{responsibleArray[responsibleIndex]}}
+        Response: {{responsibleNames[responsibleIndex]}}
       </view>
     </picker>
   </view>

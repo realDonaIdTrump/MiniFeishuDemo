@@ -4,10 +4,13 @@ Page({
     Category: '需求',
     Responsible: '',
     Description: '',
-    responsibleArray: ['选项1', '选项2', '选项3'], // 这里填写你的选项
+    responsibleArray: [], // 这里填写你的选项
     responsibleIndex: 0,
     customId: '',
-    isHeading: false
+    isHeading: false,
+    selectedResponsible:'',
+    vehicleTypes: [],
+    PLId: null  
   },
 
   onLoad: function (options) {
@@ -18,6 +21,7 @@ Page({
       token: app.globalData.token,
       requirementXmid: requirementXmid,
     });
+    this.getResponse();
   },
 
   bindTitleInput: function(e) {
@@ -75,6 +79,33 @@ Page({
     });
   },
 
+  getResponse: function () {
+    tt.request({
+      url: this.data.apiUrl + '/server/getResponse',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.data.token
+      },
+      success: (res) => {
+        let names = res.data.data.responsible.map(item => item.name);
+        this.setData({
+          responsibleArray: res.data.data.responsible,
+          responsibleNames: names,
+          selectedResponsible: res.data.data.responsible[0].XMIID
+        });
+      }
+    });
+  },
+  // 修改 bindResponsibleChange 方法
+bindResponsibleChange: function(e) {
+  this.setData({
+    responsibleIndex: e.detail.value,
+    selectedResponsible: this.data.responsibleArray[e.detail.value].XMIID
+  });
+  console.log(this.data.selectedResponsible);
+},
+
   createRequirementAfterOpenTransiton: function () {
     tt.request({
       url: this.data.apiUrl + '/server/createRequirement',
@@ -88,7 +119,7 @@ Page({
         mofType: 'requirementslayer.Requirement',
         Category: this.data.Category,
         relations: {
-          responsible: ["1214822"]
+          responsible: [this.data.selectedResponsible]
         },
         Description: this.data.Description,
         requirementXmid: this.data.requirementXmid,
@@ -113,30 +144,12 @@ Page({
       },
       success: (res) => {
         console.log('commitTransiton success:', res.data);
+        const app = getApp();
+        tt.navigateTo({
+          url:  `/pages/requirement/requirement?vehicleType=${app.globalData.selectedVehicleType}&PLId=${app.globalData.PLId}`
+        });
       }
     });
   }
-  // createRequirement: function () {
-  //   tt.request({
-  //     url: this.data.apiUrl + '/server/createRequirement',
-  //     method: 'POST',
-  //     header: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer ' + this.data.token
-  //     },
-  //     data: {
-  //       title: this.data.title,
-  //       mofType: 'requirementslayer.Requirement',
-  //       Category: this.data.Category,
-  //       relations: {
-  //         responsible: ["1214822"]
-  //       },
-  //       Description: this.data.Description,
-  //       requirementXmid :this.data.requirementXmid
-  //     },
-  //     success (res) {
-  //       console.log(res.data)
-  //     }
-  //   })
-  // }
+
 });

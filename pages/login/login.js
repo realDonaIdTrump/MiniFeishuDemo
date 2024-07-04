@@ -5,6 +5,7 @@ App({
   }
 });
 
+
 Page({
   data: {
     user: 'bruce',

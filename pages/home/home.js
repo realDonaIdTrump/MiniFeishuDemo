@@ -7,13 +7,13 @@ Page({
   },
 
   onLoad: function () {
-    console.log('首页加载完成'); // 页面加载调试信息
-    this.loadVehicleTypes();  // 加载车辆类型
+    console.log('首页加载完成');
+    const app = getApp(); // 页面加载调试信息
+    this.loadVehicleTypes(app);  // 加载车辆类型
   },
 
-  loadVehicleTypes: function() {
+  loadVehicleTypes: function(app) {
     let that = this;
-    const app = getApp();
     const user = app.globalData.user; // 获取全局数据中的用户名
 
     tt.request({
@@ -46,8 +46,10 @@ Page({
 
   bindVehicleTypeChange: function (e) {
     const selectedVehicleType = this.data.vehicleTypes[e.detail.value];
+    const app = getApp();
+    app.globalData.selectedVehicleType = selectedVehicleType;
     this.setData({
-      selectedVehicleType: selectedVehicleType
+      selectedVehicleType: selectedVehicleType,
     });
 
     this.updateRequirementCountAndPLId(selectedVehicleType);
@@ -74,6 +76,7 @@ Page({
             const requirementCount = vehicleData.list.reduce((count, pkg) => {
               return count + pkg.requirementList.length;
             }, 0);
+            app.globalData.PLId = vehicleData.PLId;
             that.setData({
               requirementCount: requirementCount,
               PLId: vehicleData.PLId
