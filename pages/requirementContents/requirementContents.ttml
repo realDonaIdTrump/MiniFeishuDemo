@@ -20,9 +20,10 @@
   </view>
   <view class="divider"></view>
 
-  <view class="info" bindtap="goToDescriptionPage">
+  <view class="info" >
     <text>Description:</text>
-    <editor class="value" readOnly="true">{{ description }}</editor>
+    <text class="value">{{ description }}</text>
+    <image src="/images/description.png" bindtap="goToDescriptionPage" class="your-image-class" /> <!-- 添加图片，并绑定点击事件 -->
   </view>
   <view class="divider"></view>
 

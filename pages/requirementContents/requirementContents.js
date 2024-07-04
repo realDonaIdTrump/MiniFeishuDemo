@@ -43,7 +43,6 @@ Page({
   },
   goToDescriptionPage: function () {
     tt.navigateTo({
-      // url: '/pages/description/description'
       url: '/pages/description/description'
     });
   }
