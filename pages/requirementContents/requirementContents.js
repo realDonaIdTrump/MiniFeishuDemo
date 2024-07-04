@@ -44,7 +44,7 @@ Page({
   goToDescriptionPage: function () {
     tt.navigateTo({
       // url: '/pages/description/description'
-      url: '/pages/requirement/requirement'
+      url: '/pages/description/description'
     });
   }
 });
