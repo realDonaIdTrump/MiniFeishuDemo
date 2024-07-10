@@ -13,9 +13,14 @@
           <view class="requirement-info">
             <text class="requirement-name">{{item.requirementName}}</text>
             <view class="requirement-details">
-              <text>{{item.customId}}</text>
-              <text>{{item.responsible}}</text>
-              <text>{{item.lastModifiedTime}}</text>
+              <!-- <text class="detail-title">Custom ID:</text>
+              <text class="detail-content">{{item.customId}}</text>
+              <text class="detail-title">Responsible:</text>
+              <text class="detail-content">{{item.responsible}}</text> -->
+              <view class="detail-row">
+                <text class="detail-title">Last Modified Time:</text>
+                <text class="detail-content">{{item.lastModifiedTime}}</text>
+              </view>
             </view>
           </view>
         </view>

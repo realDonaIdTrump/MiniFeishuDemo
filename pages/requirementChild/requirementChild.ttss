@@ -1,7 +1,6 @@
 .container {
   padding: 20rpx;
   background-color: #f7f8fa;
-  font-family: Arial, sans-serif;
 }
 
 .header {
@@ -15,7 +14,6 @@
 .requirement-icon {
   width: 48rpx;
   height: 48rpx;
-  margin-right: 10rpx;
 }
 
 .title {
@@ -29,6 +27,10 @@
   border-radius: 15rpx;
   font-size: 24rpx;
   color: #fff;
+  background-color: #673ab7;
+}
+
+.vehicle {
   background-color: #42a5f5;
 }
 
@@ -39,15 +41,14 @@
 .requirement-item {
   background-color: #fff;
   padding: 20rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   border-radius: 8rpx;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.requirement-item.child {
-  background-color: #f0f4f8;
-  padding: 15rpx;
+.requirement-item:hover {
+  transform: scale(1.02);
 }
 
 .requirement-header {
@@ -55,10 +56,15 @@
   align-items: center;
 }
 
+.expand-icon {
+  width: 32rpx;
+  height: 32rpx;
+  transition: transform 0.3s ease;
+}
+
 .requirement-info {
   display: flex;
   flex-direction: column;
-  margin-left: 10rpx;
 }
 
 .requirement-name {
@@ -69,13 +75,23 @@
 
 .requirement-details {
   display: flex;
-  gap: 10rpx;
+  flex-direction: column;
+  margin-top: 10rpx;
+}
+
+.detail-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #666;
+}
+
+.detail-content {
   font-size: 24rpx;
   color: #666;
 }
 
-.expand-icon {
-  width: 32rpx;
-  height: 32rpx;
-  transition: transform 0.3s ease;
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
 }
