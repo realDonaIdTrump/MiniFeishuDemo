@@ -1,54 +1,23 @@
 <view class="container">
   <view class="header">
-    <image class="logo" src="/images/requirement-icon.png" mode="aspectFit"></image>
-    <text class="title">Requirement</text>
-    <view class="vehicle-type">{{vehicleType}}</view>
-  </view>
-
-  <view class="tabs">
-    <text class="tab">Pool</text>
-    <text class="tab">Status</text>
-  </view>
-
-  <block wx:for="{{requirementPackages}}" wx:key="index">
-    <view class="package">
-      <view class="package-header">
-        <text>{{item.requirementPackageName}}</text>
-        <text bindtap="togglePackageExpansion" data-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
-      </view>
-      <view wx:if="{{item.expanded}}">
-        <block wx:for="{{item.requirementList}}" wx:key="index">
-          <view class="requirement">
-            <view class="requirement-header" catchtap="goToRequirementContent"  data-item="{{item}}">
-              <view class="requirement-info">
-                <image class="requirement-icon" src="/assets/requirement-icon.png" mode="aspectFit"></image>
-                <text class="requirement-name">{{item.requirementName}}</text>
-                <text class="custom-id">Custom ID: {{item.customId}}</text>
-                <!-- <text class="description-id">description: {{item.description}}</text> -->
-                <view class="responsible-wrapper">
-                  <text class="label">Responsible:</text>
-                  <view class="responsible">{{item.responsible}}</view>
-                </view>
-                <view class="heading-wrapper">
-                  <text class="label">Heading:</text>
-                  <checkbox checked="{{item.isHeading}}" disabled></checkbox>
-                  <!-- <icon type="{{isHeading ? 'success' : 'cancel'}}" class="icon" /> -->
-                </view>
-                <!-- <text class="last-modified">Last Modified: {{item.lastModifiedTime}} By: {{item.lastModifiedUser}}</text> -->
-              </view>
-              <text catchtap="toggleRequirementExpansion" data-package-index="{{index}}" data-requirement-index="{{index}}">{{item.expanded ? '-' : '+'}}</text>
-            </view>
-            <view wx:if="{{item.expanded}}" class="children">
-              <import src="requirementChild.ttml" />
-              <template is="requirementChildTemplate" data="{{...item, packageIndex: index, requirementIndex: index}}" />
-            </view>
-          </view>
-        </block>
-      </view>
+    <view class="title-container">
+      <image src="../../images/requirement-icon.png" class="requirement-icon"></image>
+      <text class="title">Requirements</text>
+      <text class="tag vehicle">{{vehicleType}}</text>
     </view>
-  </block>
+  </view>
 
-  <!-- <view class="add-requirement" bindtap="goToNewRequirement">
-    <text>+</text>
-  </view> -->
+  <view class="requirement-list">
+    <block wx:for="{{requirementPackages}}" wx:key="index">
+      <view class="requirement-package" bindtap="goToRequirementChild" data-index="{{index}}">
+        <view class="package-header">
+          <image src="../../images/requirement-package.png" class="package-icon"></image>
+          <text class="package-title">{{item.requirementPackageName}}</text>
+        </view>
+        <view class="package-content">
+          <text class="requirement-count">Total Requirements: {{item.requirementList.length}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
 </view>

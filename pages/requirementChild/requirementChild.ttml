@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="header">
+    <image src="../../images/requirement-icon.png" class="requirement-icon"></image>
+    <text class="title">{{packageTitle}}</text>
+    <text class="tag vehicle">{{vehicleType}}</text>
+  </view>
+
+  <view class="requirement-list">
+    <block wx:for="{{requirements}}" wx:key="index">
+      <view class="requirement-item" style="padding-left: {{item.level * 20}}rpx;">
+        <view class="requirement-header" bindtap="toggleRequirement" data-index="{{index}}">
+          <image class="expand-icon" src="../../images/arrow-right.png" style="transform: rotate({{item.expanded ? '90deg' : '0deg'}});"></image>
+          <view class="requirement-info">
+            <text class="requirement-name">{{item.requirementName}}</text>
+            <view class="requirement-details">
+              <text>{{item.customId}}</text>
+              <text>{{item.responsible}}</text>
+              <text>{{item.lastModifiedTime}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

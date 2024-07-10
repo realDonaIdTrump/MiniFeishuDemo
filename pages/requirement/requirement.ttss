@@ -1,145 +1,89 @@
 .container {
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding: 20rpx;
+  background-color: #f7f8fa;
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.vehicle-type {
-  background-color: #B70032;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.tab {
-  font-size: 18px;
-  color: #B70032;
-}
-
-.package {
-  margin-bottom: 20px;
-}
-
-.package-header {
-  background-color: #fff;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.requirement {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.requirement-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.requirement-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.requirement-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.custom-id, .last-modified {
-  font-size: 14px;
-  color: #757575;
-}
-
-.responsible-wrapper, .heading-wrapper {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-}
-
-.label {
-  font-size: 14px;
-  color: #757575;
-  margin-right: 5px;
-}
-
-.responsible {
-  background-color: #e0f7fa;
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.child-requirement {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #f1f1f1;
-  border-radius: 8px;
-}
-
-.child-requirement-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.child-requirement-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.add-requirement {
-  display: flex;
   justify-content: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.title-container {
+  display: flex;
   align-items: center;
-  background-color: #B70032;
-  color: #fff;
-  font-size: 30px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
+  justify-content: center;
 }
 
 .requirement-icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 5px;
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 8rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 8rpx;
+}
+
+.tag {
+  padding: 5rpx 10rpx;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #673ab7; /* change the background color as per your need */
+}
+
+.vehicle {
+  background-color: #B70032; /* Example color */
+}
+
+.requirement-list {
+  margin-top: 20rpx;
+}
+
+.requirement-package {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.requirement-package:hover {
+  transform: scale(1.02);
+}
+
+.package-header {
+  display: flex;
+  align-items: center;
+}
+
+.package-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.package-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.package-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.requirement-count {
+  font-size: 24rpx;
+  color: #666;
 }

@@ -5,7 +5,8 @@
     "pages/requirement/requirement",
     "pages/new/new",
     "pages/requirementContents/requirementContents",
-    "pages/description/description" 
+    "pages/description/description",
+    "pages/requirementChild/requirementChild"
   ],
   "window": {
     "navigationBarTitleText": "MiniFeishuDemo"

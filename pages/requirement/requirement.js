@@ -1,19 +1,19 @@
 Page({
   data: {
-    vehicleType: '',
-    requirementPackages: []
+    requirementPackages: [],
+    vehicleType: ''
   },
 
   onLoad: function (options) {
-    const app = getApp();
-    this.setData({
-      vehicleType: options.vehicleType || ''
-    });
-    this.loadRequirements(app.globalData.apiUrl, app.globalData.user, options.PLId);
+    this.loadRequirements();
   },
 
-  loadRequirements: function(apiUrl, user, PLId) {
+  loadRequirements: function () {
+    let that = this;
     const app = getApp();
+    const apiUrl = app.globalData.apiUrl;
+    const PLId = app.globalData.PLId;
+
     tt.request({
       url: apiUrl + '/server/operation/getRequirement',
       method: 'POST',
@@ -21,75 +21,41 @@ Page({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + app.globalData.token
       },
-      success: (res) => {
+      success: function (res) {
         if (res.data.code === '200') {
           const vehicleData = res.data.data.result.find(item => item.PLId === PLId);
           if (vehicleData) {
             const requirementPackages = vehicleData.list.map(pkg => ({
               ...pkg,
-              expanded: false,
-              requirementList: this.initializeRequirementList(pkg.requirementList)
+              vehicleType: vehicleData.name,
+              requirementList: pkg.requirementList.map(req => ({
+                ...req,
+                expanded: false
+              }))
             }));
-            this.setData({
-              requirementPackages: requirementPackages
+            that.setData({
+              requirementPackages: requirementPackages,
+              vehicleType: vehicleData.name
             });
+            app.globalData.selectedVehicleType = vehicleData.name; // Set the selected vehicle type in global data
           }
         } else {
           console.error('Failed to fetch requirements', res);
         }
       },
-      fail: (err) => {
+      fail: function (err) {
         console.error('Request failed', err);
       }
     });
   },
 
-  initializeRequirementList: function(requirementList) {
-    return requirementList.map(req => ({
-      ...req,
-      expanded: false,
-      children: this.initializeRequirementList(req.children || [])
-    }));
-  },
-
-  togglePackageExpansion: function(e) {
-    const { index } = e.currentTarget.dataset;
-    const packages = this.data.requirementPackages;
-    packages[index].expanded = !packages[index].expanded;
-    this.setData({ requirementPackages: packages });
-  },
-
-  toggleRequirementExpansion: function(e) {
-    const { packageIndex, requirementIndex } = e.currentTarget.dataset;
-    const packages = this.data.requirementPackages;
-    const requirement = packages[packageIndex].requirementList[requirementIndex];
-    requirement.expanded = !requirement.expanded;
-    this.setData({ requirementPackages: packages });
-  },
-
-  toggleChildExpansion: function(e) {
-    const { packageIndex, requirementIndex, childIndex } = e.currentTarget.dataset;
-    const packages = this.data.requirementPackages;
-    const requirement = packages[packageIndex].requirementList[requirementIndex];
-    const child = requirement.children[childIndex];
-    child.expanded = !child.expanded;
-    this.setData({ requirementPackages: packages });
-  },
-
-  goToNewRequirement: function () {
+  goToRequirementChild: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const pkg = this.data.requirementPackages[index];
+    const app = getApp();
+    app.globalData.selectedVehicleType = this.data.vehicleType; // Ensure the selected vehicle type is available globally
     tt.navigateTo({
-      url: '/pages/new/new'
-    });
-  },
-
-  
-  goToRequirementContent: function (e) {
-    // console.log(e.currentTarget.dataset);
-    const requirement = e.currentTarget.dataset.item;
-    console.log(requirement);
-    const requirementStr = encodeURIComponent(JSON.stringify(requirement));
-    tt.navigateTo({
-      url: '/pages/requirementContents/requirementContents?requirement=' + requirementStr
+      url: '/pages/requirementChild/requirementChild?package=' + encodeURIComponent(JSON.stringify(pkg))
     });
   }
 });
