@@ -23,7 +23,7 @@
   <view class="info" >
     <text>Description:</text>
     <text class="value">{{ description }}</text>
-    <image src="/images/description.png" bindtap="goToDescriptionPage" class="your-image-class" /> <!-- 添加图片，并绑定点击事件 -->
+    <image src="/images/message.png" bindtap="goToDescriptionPage" class="your-image-class" /> <!-- 添加图片，并绑定点击事件 -->
   </view>
   <view class="divider"></view>
 
@@ -41,9 +41,10 @@
 
   <view class="buttons">
     <button bindtap="goToHome">Home</button>
-    <button bindtap="goToRequirement">Requirement</button>
+    <!-- <button bindtap="goToRequirement">Requirement</button> -->
   </view>
-   <view class="add-requirement" bindtap="goToNewRequirement" data-requirementXmid="{{requirementXmid}}">
-    <text>+</text>
+   <view class="add-requirement">
+    <image src="/images/plus.png" bindtap="goToNewRequirement" 
+    data-requirementXmid="{{requirementXmid}}" data-requirementName="{{requirementName}}" class="plus-images" />
   </view>
 </view>

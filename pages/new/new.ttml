@@ -1,4 +1,8 @@
 <view class="container">
+  <view class="fatherRequirement">
+    <input type="text" placeholder="fatherRequirement" value="{{requirementName}}"/>
+  </view>
+  <view style="height: 80px;"></view>
   <view class="input-group">
     <input type="text" placeholder="title" bindinput="bindTitleInput" />
   </view>
@@ -18,8 +22,8 @@
   <view class="input-group">
     <input type="text" placeholder="customId" bindinput="bindCustomIdInput" />
   </view>
-  <view class="input-group">
-    <checkbox checked="{{isHeading}}" bindchange="bindIsHeadingChange">isHeading</checkbox>
+  <view class="input-isHeading">
+    <checkbox checked="{{isHeading}}" bindchange="bindIsHeadingChange" class="checkbox">isHeading</checkbox>
   </view>
-  <button bindtap="createRequirement">createRequirement</button>
+  <button bindtap="createRequirement">Create Requirement</button>
 </view>

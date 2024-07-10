@@ -34,7 +34,7 @@ Page({
   login: function() {
     const { user, password, role } = this.data;
     var app = getApp();
-    console.log('Logging in with:', { user, password, role }); // Debug 信息
+    // console.log('Logging in with:', { user, password, role }); // Debug 信息
     tt.request({
       url: app.globalData.apiUrl + '/server/authenticationUser',
       method: 'POST',
@@ -48,7 +48,7 @@ Page({
           const app = getApp();
           app.globalData.user = user; // 将用户名保存到全局数据中
           app.globalData.token = res.data.data;
-          console.log(app.globalData.token);
+          // console.log(app.globalData.token);
           tt.navigateTo({
             url: '/pages/home/home'
           });
