@@ -30,6 +30,12 @@ Page({
     const index = e.currentTarget.dataset.index;
     const requirements = this.data.requirements;
     const clickedRequirement = requirements[index];
+
+    // Check if the requirement has children before toggling
+    if (!clickedRequirement.children || clickedRequirement.children.length === 0) {
+      return; // Do nothing if no children
+    }
+    
     clickedRequirement.expanded = !clickedRequirement.expanded;
 
     // Toggle visibility of children based on the expanded state
