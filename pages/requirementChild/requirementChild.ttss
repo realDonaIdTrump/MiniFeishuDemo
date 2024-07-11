@@ -16,6 +16,11 @@
   height: 48rpx;
 }
 
+.requirement-icon-small {
+  width: 24rpx;  /* Smaller size */
+  height: 24rpx;  /* Smaller size */
+}
+
 .title {
   font-size: 36rpx;
   font-weight: bold;
@@ -67,14 +72,16 @@
   flex-direction: column;
 }
 
+.requirement-name-container {
+  display: flex;
+  align-items: center;
+}
+
 .requirement-name {
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
-}
-
-.requirement-name:hover {
-  color: #B70032;
+  margin-left: 10rpx;
 }
 
 .requirement-details {
@@ -83,21 +90,19 @@
   margin-top: 10rpx;
 }
 
-.detail-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .detail-title {
   font-size: 24rpx;
   font-weight: bold;
   color: #666;
-  margin-right: 10rpx;
 }
 
 .detail-content {
   font-size: 24rpx;
   color: #666;
-  margin-right: 20rpx;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
 }

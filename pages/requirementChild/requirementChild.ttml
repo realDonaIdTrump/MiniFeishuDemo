@@ -11,7 +11,10 @@
         <view class="requirement-header">
           <image class="expand-icon" src="../../images/arrow-right.png" style="transform: rotate({{item.expanded ? '90deg' : '0deg'}});" bindtap="toggleRequirement" data-index="{{index}}"></image>
           <view class="requirement-info" bindtap="goToRequirementContents" data-index="{{index}}">
-            <text class="requirement-name">{{item.requirementName}}</text>
+            <view class="requirement-name-container">
+              <image src="../../images/requirement.png" class="requirement-icon-small"></image>
+              <text class="requirement-name" bindtap="goToRequirementContents" data-index="{{index}}">{{item.requirementName}}</text>
+            </view>
             <view class="requirement-details">
               <!-- <view class="detail-row">
                 <text class="detail-title">Custom ID:</text>
