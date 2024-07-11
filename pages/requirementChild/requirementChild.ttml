@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <image src="../../images/requirement-icon.png" class="requirement-icon"></image>
+    <image src="../../images/requirement-package.png" class="requirement-icon"></image>
     <text class="title">{{packageTitle}}</text>
     <text class="tag vehicle">{{vehicleType}}</text>
   </view>
