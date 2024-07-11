@@ -59,7 +59,7 @@
 .expand-icon {
   width: 32rpx;
   height: 32rpx;
-  transition: transform 0.3s ease;
+  margin-right: 10rpx;
 }
 
 .requirement-info {
@@ -73,25 +73,31 @@
   color: #333;
 }
 
+.requirement-name:hover {
+  color: #B70032;
+}
+
 .requirement-details {
   display: flex;
   flex-direction: column;
   margin-top: 10rpx;
 }
 
+.detail-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .detail-title {
   font-size: 24rpx;
   font-weight: bold;
   color: #666;
+  margin-right: 10rpx;
 }
 
 .detail-content {
   font-size: 24rpx;
   color: #666;
-}
-
-.detail-row {
-  display: flex;
-  align-items: center;
-  margin-top: 5rpx;
+  margin-right: 20rpx;
 }
