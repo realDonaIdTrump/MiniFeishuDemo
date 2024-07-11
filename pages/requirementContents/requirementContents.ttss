@@ -11,26 +11,23 @@
 .title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #343a40;
-  text-align: center;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  text-align: left;
 }
 
 .info {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;  /* 增加间距 */
   align-items: center;
   flex: 1;
 }
 
 .value {
-  font-weight: bold;
+  font-size: 32rpx;
+  /* font-weight: bold; */
+  color: #333;
 }
 
 .divider {
@@ -58,7 +55,7 @@ button {
 }
 
 button:hover {
-  background-color: #B70032;
+  background-color: #ff0000;  /* 修改悬停颜色 */
 }
 
 .buttons {
@@ -68,13 +65,11 @@ button:hover {
 .your-image-class {
   width: 90px;
   height: 80px;
-  /* background-color: red; */
 }
 
 .plus-images {
   width: 50px;
   height: 30px;
-  /* background-color: red; */
 }
 
 .add-requirement {
@@ -85,11 +80,34 @@ button:hover {
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
-  background-color: red;
   color: white;
   border-radius: 50%;
   font-size: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.requirement-name-container {
+  display: flex;
+  align-items: center;
+}
+
+.requirement-icon-small {
+  width: 24rpx; 
+  height: 24rpx;  
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* 修改为 flex-start */
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
 }

@@ -16,14 +16,6 @@
               <text class="requirement-name" bindtap="goToRequirementContents" data-index="{{index}}">{{item.requirementName}}</text>
             </view>
             <view class="requirement-details">
-              <!-- <view class="detail-row">
-                <text class="detail-title">Custom ID:</text>
-                <text class="detail-content">{{item.customId}}</text>
-              </view>
-              <view class="detail-row">
-                <text class="detail-title">Responsible:</text>
-                <text class="detail-content">{{item.responsible}}</text>
-              </view> -->
               <view class="detail-row">
                 <text class="detail-title">Last Modified Time:</text>
                 <text class="detail-content">{{item.lastModifiedTime}}</text>
