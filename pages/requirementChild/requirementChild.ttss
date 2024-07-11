@@ -84,6 +84,10 @@
   margin-left: 10rpx;
 }
 
+.requirement-name:hover {
+  color: #B70032;
+}
+
 .requirement-details {
   display: flex;
   flex-direction: column;
