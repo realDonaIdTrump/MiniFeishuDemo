@@ -1,13 +1,14 @@
 <view class="container">
   <view class="fatherRequirement">
-    <input type="text" placeholder="fatherRequirement" value="{{requirementName}}"/>
+    <image src="../../images/requirement.png" class="requirement-icon-small"></image>
+    <input type="text" placeholder="fatherRequirement" value="{{requirementName}}" class="solid-input"/>
   </view>
   <view style="height: 80px;"></view>
   <view class="input-group">
-    <input type="text" placeholder="title" bindinput="bindTitleInput" />
+    <input type="text" placeholder="Title :" bindinput="bindTitleInput" />
   </view>
   <view class="input-group">
-    <input type="text" placeholder="Category" bindinput="bindCategoryInput" />
+    <input type="text" placeholder="Category :" bindinput="bindCategoryInput" />
   </view>
   <view class="input-group">
     <picker mode="selector" range="{{responsibleNames}}" bindchange="bindResponsibleChange">
@@ -15,15 +16,16 @@
         Response: {{responsibleNames[responsibleIndex]}}
       </view>
     </picker>
+    <image src="../../images/sort-down.png" class="arrow-icon"></image>
   </view>
   <view class="input-group">
-    <input type="text" placeholder="Description" bindinput="bindDescriptionInput" />
+    <input type="text" placeholder="Description :" bindinput="bindDescriptionInput" />
   </view>
   <view class="input-group">
-    <input type="text" placeholder="customId" bindinput="bindCustomIdInput" />
+    <input type="text" placeholder="customId :" bindinput="bindCustomIdInput" />
   </view>
   <view class="input-isHeading">
-    <checkbox checked="{{isHeading}}" bindchange="bindIsHeadingChange" class="checkbox">isHeading</checkbox>
+    <checkbox checked="{{isHeading}}" bindchange="bindIsHeadingChange" class="checkbox" style="background-color: {{isChecked ? 'green' : 'white'}}">isHeading</checkbox>
   </view>
-  <button bindtap="createRequirement">Create Requirement</button>
+  <button bindtap="createRequirement" class="solid-button">Create Requirement</button>
 </view>
