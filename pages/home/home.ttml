@@ -22,10 +22,13 @@
           <text class="card-title">REQUIREMENT</text>
           <text class="card-number">{{requirementCount}}</text>
         </view>
-        <text class="card-description">1. This is a requirement demo for Feishu...</text>
+        <text class="card-description">This is a requirement demo for Feishu...</text>
       </view>
     </view>
     <view class="card" bindtap="goToTicket">
+      <view class="pending-message">
+        <text>Coming soon</text>
+      </view>
       <view class="card-header">
         <image class="icon" src="/images/ticket.png" mode="aspectFit" />
       </view>
@@ -34,7 +37,7 @@
           <text class="card-title">TICKET</text>
           <text class="card-number">500</text>
         </view>
-        <text class="card-description">1. This is a ticket demo for Feishu...</text>
+        <text class="card-description">This is a ticket demo for Feishu...</text>
       </view>
     </view>
   </view>

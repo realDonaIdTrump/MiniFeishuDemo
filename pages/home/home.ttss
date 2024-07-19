@@ -61,6 +61,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left; /* 将卡片内容对齐到左侧 */
+  position: relative; /* Added to contain the absolute positioning of pending message */
 }
 
 .card-header {
@@ -103,4 +104,25 @@
   font-size: 12px;
   color: #999;
   margin-top: 5px;
+}
+
+/* Specific styles for the ticket card */
+.ticket-card {
+  position: relative;
+}
+
+.pending-message {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #B70032; /* Text color */
+  padding: 30px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 1; /* Ensure it is above other elements */
+}
+
+.ticket-card .card-body {
+  margin-top: 30px; /* Adjust this value based on the height of the pending message */
 }

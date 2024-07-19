@@ -11,18 +11,27 @@ Page({
   },
 
   onLoad: function (options) {
-  const requirementStr = decodeURIComponent(options.requirement);
-  const requirement = JSON.parse(requirementStr);
-  console.log(requirement)
-  this.setData({
-    requirementName: requirement.requirementName,
-    customId:requirement.customId,
-    isHeading:requirement.isHeading,
-    responsible:requirement.responsible,
-    requirementXmid:requirement.requirementXMIID,
-    lastModifiedTime:requirement.lastModifiedTime,
-    lastModifiedUser:requirement.lastModifiedUser
-  });
+    const requirementStr = decodeURIComponent(options.requirement);
+    const requirement = JSON.parse(requirementStr);
+    console.log(requirement)
+    this.setData({
+      requirementName: requirement.requirementName,
+      customId:requirement.customId,
+      isHeading:requirement.isHeading,
+      responsible:requirement.responsible,
+      requirementXmid:requirement.requirementXMIID,
+      lastModifiedTime:requirement.lastModifiedTime,
+      lastModifiedUser:requirement.lastModifiedUser
+    });
+  },
+
+  viewDescription: function () {
+    const url = this.data.description;
+    if (url) {
+      tt.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent(url)
+      });
+    }
   },
 
   goToHome: function () {
@@ -30,6 +39,7 @@ Page({
       url: '/pages/home/home'
     });
   },
+
   goToNewRequirement: function (e) {
     const requirementXmid = e.currentTarget.dataset.requirementxmid;
     const requirementName = e.currentTarget.dataset.requirementname;
@@ -39,14 +49,4 @@ Page({
       + '&requirementName=' + encodeURIComponent(requirementName)
     });
   },
-  goToRequirement: function () {
-    tt.navigateTo({
-      url: '/pages/requirement/requirement'
-    });
-  },
-  goToDescriptionPage: function () {
-    tt.navigateTo({
-      url: '/pages/description/description'
-    });
-  }
 });

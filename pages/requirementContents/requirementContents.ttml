@@ -1,42 +1,63 @@
 <view class="container">
-  <view class="header">
+  <view class="requirement-name-container">
     <image src="../../images/requirement.png" class="requirement-icon-small"></image>
-    <text class="header-title">{{requirementName}}</text>
+    <text class="title">{{requirementName}}</text>
   </view>
-  <view class="info">
-    <!-- <image src="../../images/requirement.png" class="requirement-icon-small"></image> -->
-    <text>Custom ID:</text>
-    <text class="value" style="margin-left: auto;">{{ customId }}</text>
+
+  <view class="section">
+    <view class="section-content">
+      <image src="../../images/customId.png" class="section-icon"></image>
+      <text class="section-title">Custom ID:</text>
+      <text class="section-text">{{customId}}</text>
+    </view>
   </view>
-  <view class="info">
-    <text>Is Heading:</text>
-    <icon type="{{isHeading ? 'success' : 'cancel'}}" class="icon" />
+
+  <view class="section">
+    <view class="section-content">
+      <image src="../../images/responsible.png" class="section-icon"></image>
+      <text class="section-title">Responsible:</text>
+      <text class="section-text">{{responsible}}</text>
+    </view>
   </view>
-  <view class="info">
-    <image src="../../images/people.png" class="requirement-icon-small"></image>
-    <text>Responsible:</text>
-    <text class="value" style="margin-left: auto;">{{ responsible }}</text>
+
+  <view class="section">
+    <view class="section-content">
+      <image src="../../images/ishead.png" class="section-icon"></image>
+      <text class="section-title">Is Heading:</text>
+      <text class="section-text">{{isHeading}}</text>
+    </view>
   </view>
-  <view class="info">
-    <image src="../../images/cal.png" class="requirement-icon-small"></image>
-    <text>Last Modified:</text>
-    <text class="value" style="margin-left: auto;">{{ lastModifiedTime }}</text>
+
+  <view class="section">
+    <view class="section-content">
+      <image src="../../images/lastModifiedTime.png" class="section-icon"></image>
+      <text class="section-title">Last Modified Time:</text>
+      <text class="section-text">{{lastModifiedTime}}</text>
+    </view>
   </view>
-  <view class="info">
-    <image src="../../images/people.png" class="requirement-icon-small"></image>
-    <text>Last Modified User:</text>
-    <text class="value" style="margin-left: auto;">{{ lastModifiedUser }}</text>
-  </view> 
-  <view class="info" >
-    <image src="../../images/message-vector.png" class="requirement-icon-small"></image>
-    <text>Description:</text>
-    <text class="value" style="margin-left: auto;">{{ description }}</text>
+
+  <view class="section">
+    <view class="section-content">
+      <image src="../../images/lastModifiedUser.png" class="section-icon"></image>
+      <text class="section-title">Last Modified User:</text>
+      <text class="section-text">{{lastModifiedUser}}</text>
+    </view>
   </view>
-  <view class="buttons">
-    <image src="/images/home.png" bindtap="goToHome" class="home-images" />
+
+  <view class="section" bindtap="viewDescription">
+    <view class="section-content description-section">
+      <view class="description-icon-title">
+        <image src="../../images/description2.png" class="section-icon"></image>
+        <text class="section-title description-title">Description:</text>
+      </view>
+      <image src="../../images/view.png" class="section-view-icon"></image>
+    </view>
   </view>
-   <view class="add-requirement">
-    <image src="/images/plus-vector.png" bindtap="goToNewRequirement" 
-    data-requirementXmid="{{requirementXmid}}" data-requirementName="{{requirementName}}" class="plus-images" />
+
+  <!-- Fixed buttons -->
+  <view class="fixed-buttons">
+    <image src="../../images/home1.png" class="fixed-button home-button" bindtap="goToHome"></image>
+    <image src="../../images/plus-vector.png" class="fixed-button add-button" data-requirementxmid="{{requirementXmid}}"
+      data-requirementname="{{requirementName}}" bindtap="goToNewRequirement"></image>
   </view>
 </view>

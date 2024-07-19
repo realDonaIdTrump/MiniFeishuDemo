@@ -4,7 +4,7 @@ Page({
     Category: '需求',
     Responsible: '',
     Description: '',
-    responsibleArray: [], // 这里填写你的选项
+    responsibleArray: [],
     responsibleIndex: 0,
     customId: '',
     isHeading: false,
@@ -43,13 +43,13 @@ Page({
   bindCustomIdInput: function(e) {
     this.setData({
       customId: e.detail.value
-    })
+    });
   },
 
   bindIsHeadingChange: function(e) {
     this.setData({
       isHeading: e.detail.value
-    })
+    });
   },
   bindResponsibleChange: function(e) {
     this.setData({
@@ -64,7 +64,6 @@ Page({
   },
 
   createRequirement: function () {
-    // Call openTransiton method
     this.openTransiton();
   },
 
@@ -78,7 +77,6 @@ Page({
       },
       success: (res) => {
         console.log('openTransiton success:', res.data);
-        // Call createRequirement method after openTransiton
         this.createRequirementAfterOpenTransiton();
       }
     });
@@ -102,14 +100,14 @@ Page({
       }
     });
   },
-  // 修改 bindResponsibleChange 方法
-bindResponsibleChange: function(e) {
-  this.setData({
-    responsibleIndex: e.detail.value,
-    selectedResponsible: this.data.responsibleArray[e.detail.value].XMIID
-  });
-  console.log(this.data.selectedResponsible);
-},
+
+  bindResponsibleChange: function(e) {
+    this.setData({
+      responsibleIndex: e.detail.value,
+      selectedResponsible: this.data.responsibleArray[e.detail.value].XMIID
+    });
+    console.log(this.data.selectedResponsible);
+  },
 
   createRequirementAfterOpenTransiton: function () {
     tt.request({
@@ -133,7 +131,6 @@ bindResponsibleChange: function(e) {
       },
       success: (res) => {
         console.log('createRequirement success:', res.data);
-        // Call commitTransiton method after createRequirement
         this.commitTransitonAfterCreateRequirement();
       }
     });
@@ -148,13 +145,15 @@ bindResponsibleChange: function(e) {
         'Authorization': 'Bearer ' + this.data.token
       },
       success: (res) => {
-        console.log('commitTransiton success:', res.data);
         const app = getApp();
         tt.navigateTo({
           url:  `/pages/requirement/requirement?vehicleType=${app.globalData.selectedVehicleType}&PLId=${app.globalData.PLId}`
         });
       }
     });
-  }
+  },
 
+  cancelRequirement: function () {
+    tt.navigateBack();
+  }
 });
