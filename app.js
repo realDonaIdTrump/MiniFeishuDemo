@@ -1,7 +1,7 @@
 App({
   globalData: {
     jwtToken: null,
-    apiUrl: 'http://localhost:8085' ,// 你的接口地址 
+    apiUrl: 'http://10.86.10.165:8085' ,// 你的接口地址 
     selectedVehicleType: '',
     PLId: null  
   }

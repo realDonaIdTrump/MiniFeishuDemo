@@ -6,7 +6,9 @@
     "pages/new/new",
     "pages/requirementContents/requirementContents",
     "pages/description/description",
-    "pages/requirementChild/requirementChild"
+    "pages/requirementChild/requirementChild",
+    "pages/webview/webview",
+    "pages/webviewNew/webviewNew"
   ],
   "window": {
     "navigationBarTitleText": "MiniFeishuDemo"
