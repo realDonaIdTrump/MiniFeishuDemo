@@ -1,1 +1,4 @@
-<web-view src="{{webviewUrl}}"></web-view>
+<!-- webview.ttml -->
+<view class="container">
+  <web-view src="{{filePath}}"></web-view>
+</view>

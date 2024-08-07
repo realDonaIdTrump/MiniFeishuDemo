@@ -64,10 +64,10 @@ Page({
     const app = getApp();
     // 定义请求参数
     const params = {
-      WOPISrc: 'https://vistrppt4as404.vi.vector.int:8202/vCollabAPI/dev_webapp/artifacts/1108383/wopi/files/description'
+      WOPISrc: 'http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/1108383/wopi/files/description'
   };
     tt.request({
-      url: "https://vistrppt4li201.vi.vector.int:9981/browser/84551c8/cool.html",
+      url: "http://10.86.8.176:9980/browser/84551c8/cool.html",
       method: 'POST',
       header: {
         'Content-Type': 'application/json',
@@ -78,13 +78,21 @@ Page({
       data: params,  // 传递请求参数
       success: function (res) {
         if (res.statusCode === 200) {
-          console.log(res);
-          // console.log(res.data);
-          const htmlString = res.data;  // 假设HTML内容在res.data.content中
-  
-          // 将HTML字符串传递给WebView页面
-          tt.navigateTo({
-            url: '/pages/webview/webview?html=' + encodeURIComponent(htmlString)
+          const fs = tt.getFileSystemManager();
+          const filePath = `${tt.env.USER_DATA_PATH}/temp.html`; 
+          fs.writeFile({
+            filePath: filePath,
+            data: res.data.content,
+            encoding: 'utf8',
+            success: () => {
+              // 导航到展示HTML内容的页面
+              tt.navigateTo({
+                url: `/pages/webview/webview?filePath=${encodeURIComponent(filePath)}`
+              });
+            },
+            fail: (err) => {
+              console.error('Failed to write HTML file', err);
+            }
           });
         } else {
           console.error('Failed to fetch description', res);

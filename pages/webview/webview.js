@@ -1,11 +1,14 @@
+// webview.js
 Page({
   data: {
-    webviewUrl: ''
+    filePath: ""
   },
-  onLoad: function (options) {
-    const htmlString = decodeURIComponent(options.html);
-    this.setData({
-      webviewUrl: 'data:text/html;charset=utf-8,' + encodeURIComponent(htmlString)
-    });
+  
+  onLoad: function(options) {
+    if (options.filePath) {
+      this.setData({
+        filePath: decodeURIComponent(options.filePath)
+      });
+    }
   }
 });
