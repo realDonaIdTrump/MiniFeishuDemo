@@ -28,14 +28,11 @@ Page({
   viewDescription: function () {
     const requirementXmid = this.data.requirementXmid;
     const app = getApp();
-    const collaboraUrl = `http://10.86.8.176:9980/browser/10deb70/cool.html?WOPISrc=http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description`;
+    const token = app.globalData.token;
+    const url = `http://10.86.8.176:9980/browser/10deb70/cool.html?WOPISrc=http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description&access_token=${token}`;
     
     tt.navigateTo({
-      url: `/pages/webview/webview?url=${encodeURIComponent(collaboraUrl)}`,
-      header: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + app.globalData.token
-      }
+      url: `/pages/webview/webview?url=${encodeURIComponent(url)}`
     });
   },
 
