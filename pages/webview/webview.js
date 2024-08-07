@@ -1,14 +1,12 @@
-// webview.js
 Page({
   data: {
-    filePath: ""
+    url: ''
   },
-  
-  onLoad: function(options) {
-    if (options.filePath) {
-      this.setData({
-        filePath: decodeURIComponent(options.filePath)
-      });
-    }
+
+  onLoad: function (options) {
+    const url = decodeURIComponent(options.url);
+    this.setData({
+      url: url
+    });
   }
 });

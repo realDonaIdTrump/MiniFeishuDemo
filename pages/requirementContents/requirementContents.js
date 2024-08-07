@@ -1,109 +1,43 @@
 Page({
   data: {
-    requirementName :'',
-    customId:'',
-    isHeading:'',
-    responsible:'',
-    description:'',
-    lastModifiedTime:'',
-    lastModifiedUser:'',
-    requirementXmid:''
+    requirementName: '',
+    customId: '',
+    isHeading: '',
+    responsible: '',
+    description: '',
+    lastModifiedTime: '',
+    lastModifiedUser: '',
+    requirementXmid: ''
   },
 
   onLoad: function (options) {
     const requirementStr = decodeURIComponent(options.requirement);
     const requirement = JSON.parse(requirementStr);
-    console.log(requirement)
+    console.log(requirement);
     this.setData({
       requirementName: requirement.requirementName,
-      customId:requirement.customId,
-      isHeading:requirement.isHeading,
-      responsible:requirement.responsible,
-      requirementXmid:requirement.requirementXMIID,
-      lastModifiedTime:requirement.lastModifiedTime,
-      lastModifiedUser:requirement.lastModifiedUser
+      customId: requirement.customId,
+      isHeading: requirement.isHeading,
+      responsible: requirement.responsible,
+      requirementXmid: requirement.requirementXMIID,
+      lastModifiedTime: requirement.lastModifiedTime,
+      lastModifiedUser: requirement.lastModifiedUser
     });
   },
 
-  // viewDescription: function () {
-  //   const app = getApp();
-  //   // 定义请求参数
-  //   const params = {
-  //     artId: '1108383'
-  // };
-  //   tt.request({
-  //     url: app.globalData.apiUrl  + "/server/testHtml",
-  //     method: 'GET',
-  //     header: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer ' + app.globalData.token,
-  //       'Host' : 'vistrppt4li201.vi.vector.int:9981'
-  //     },
-  //     data: params,  // 传递请求参数
-  //     success: function (res) {
-  //       if (res.statusCode === 200) {
-  //         console.log(res);
-  //         // console.log(res.data);
-  //         const htmlString = res.data;  // 假设HTML内容在res.data.content中
-  
-  //         // 将HTML字符串传递给WebView页面
-  //         tt.navigateTo({
-  //           url: '/pages/webview/webview?html=' + encodeURIComponent(htmlString)
-  //         });
-  //       } else {
-  //         console.error('Failed to fetch description', res);
-  //       }
-  //     },
-  //     fail: function (err) {
-  //       console.error('Request failed', err);
-  //     }
-  //   });
-  // },
-
-  viewDescription: function () { 
+  viewDescription: function () {
+    const requirementXmid = this.data.requirementXmid;
     const app = getApp();
-    // 定义请求参数
-    const params = {
-      WOPISrc: 'http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/1108383/wopi/files/description'
-  };
-    tt.request({
-      url: "http://10.86.8.176:9980/browser/84551c8/cool.html",
-      method: 'POST',
+    const collaboraUrl = `http://10.86.8.176:9980/browser/10deb70/cool.html?WOPISrc=http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description`;
+    
+    tt.navigateTo({
+      url: `/pages/webview/webview?url=${encodeURIComponent(collaboraUrl)}`,
       header: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + app.globalData.token,
-        'access_token' : 'Bearer ' + app.globalData.token,
-        'Host' : 'vistrppt4li201.vi.vector.int:9981'
-      },
-      data: params,  // 传递请求参数
-      success: function (res) {
-        if (res.statusCode === 200) {
-          const fs = tt.getFileSystemManager();
-          const filePath = `${tt.env.USER_DATA_PATH}/temp.html`; 
-          fs.writeFile({
-            filePath: filePath,
-            data: res.data.content,
-            encoding: 'utf8',
-            success: () => {
-              // 导航到展示HTML内容的页面
-              tt.navigateTo({
-                url: `/pages/webview/webview?filePath=${encodeURIComponent(filePath)}`
-              });
-            },
-            fail: (err) => {
-              console.error('Failed to write HTML file', err);
-            }
-          });
-        } else {
-          console.error('Failed to fetch description', res);
-        }
-      },
-      fail: function (err) {
-        console.error('Request failed', err);
+        'Authorization': 'Bearer ' + app.globalData.token
       }
     });
   },
-
 
   goToHome: function () {
     tt.navigateTo({
@@ -116,8 +50,8 @@ Page({
     const requirementName = e.currentTarget.dataset.requirementname;
     console.log(e.currentTarget.dataset);
     tt.navigateTo({
-      url: '/pages/new/new?requirementXmid=' + requirementXmid 
-      + '&requirementName=' + encodeURIComponent(requirementName)
+      url: '/pages/new/new?requirementXmid=' + requirementXmid +
+           '&requirementName=' + encodeURIComponent(requirementName)
     });
   },
 });
