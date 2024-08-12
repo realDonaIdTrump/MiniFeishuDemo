@@ -9,7 +9,8 @@ Page({
   onLoad: function () {
     console.log('首页加载完成');
     const app = getApp(); // 页面加载调试信息
-    this.loadVehicleTypes(app);  // 加载车辆类型
+    this.loadVehicleTypes(app);  
+    console.log(app.globalData.token)// 加载车辆类型
   },
 
   loadVehicleTypes: function(app) {

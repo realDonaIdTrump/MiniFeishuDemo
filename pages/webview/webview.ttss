@@ -1,5 +1,42 @@
 /* webview.ttss */
-.container {
-  height: 100%;
+.webview-container {
+  position: relative;
+  height: calc(100% - 60px); /* 预留底部按钮位置 */
+}
+
+.web-view {
   width: 100%;
+  height: 100%;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  z-index: 1000; /* 确保在 web-view 之上 */
+}
+
+.footer-container button {
+  width: 45%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.footer-container .btn-home {
+  background-color: #007aff;
+}
+
+.footer-container .btn-close {
+  background-color: #ff3b30;
 }

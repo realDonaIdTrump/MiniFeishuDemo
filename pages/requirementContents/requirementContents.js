@@ -27,10 +27,12 @@ Page({
 
   viewDescription: function () {
     const requirementXmid = this.data.requirementXmid;
+    // const requirementXmid = '1388710';
     const app = getApp();
     const token = app.globalData.token;
-    const url = `http://10.86.8.176:9980/browser/10deb70/cool.html?WOPISrc=http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description&access_token=${token}`;
-    
+    // const url = `http://10.86.8.176:9980/browser/10deb70/cool.html?WOPISrc=http://vistrppt4as404.vi.vector.int:8142/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description&access_token=${token}`;
+    const url = `http://vistrppt4li201.vi.vector.int:9981/browser/84551c8/cool.html?WOPISrc=https://vistrppt4as404.vi.vector.int:8202/vCollabAPI/dev_webapp/artifacts/${requirementXmid}/wopi/files/description&access_token=${token}`;
+    // const url = 'https://intranet.vg.vector.int/';
     tt.navigateTo({
       url: `/pages/webview/webview?url=${encodeURIComponent(url)}`
     });

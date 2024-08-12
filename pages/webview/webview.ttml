@@ -1,1 +1,7 @@
-<web-view src="{{url}}"></web-view>
+<view class="webview-container">
+  <web-view src="{{url}}" class="web-view"></web-view>
+</view>
+<view class="footer-container">
+  <button class="btn-home" bindtap="goHome">返回主页</button>
+  <button class="btn-close" bindtap="closeTask">关闭事务</button>
+</view>

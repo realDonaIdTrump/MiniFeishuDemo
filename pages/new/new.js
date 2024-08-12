@@ -16,9 +16,6 @@ Page({
   onLoad: function (options) {
     const requirementXmid = options.requirementXmid;
     const requirementName = decodeURIComponent(options.requirementName);
-    console.log("------");
-    console.log(requirementName);
-    console.log(options.requirementName);
     const app = getApp();
     this.setData({
       apiUrl: app.globalData.apiUrl,
