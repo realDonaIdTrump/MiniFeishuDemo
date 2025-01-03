@@ -10,10 +10,22 @@
       <view class="requirement-item" style="padding-left: {{item.level * 20}}rpx;">
         <view class="requirement-header">
           <image class="expand-icon" src="../../images/arrow-right.png" style="transform: rotate({{item.expanded ? '90deg' : '0deg'}});" bindtap="toggleRequirement" data-index="{{index}}"></image>
-          <view class="requirement-info" bindtap="goToRequirementContents" data-index="{{index}}">
+          
+          <!-- Check if item is a package, then show the package image and name -->
+          <view wx:if="{{item.isPackage}}">
+            <image src="../../images/requirement-package.png" class="package-icon"></image>
+            <text class="package-title">{{item.requirementPackageName}}</text>
+            <!-- Show Total Requirements for packages -->
+            <view class="package-content" wx:if="{{item.requirementList}}">
+              <text class="requirement-count">Total Requirements: {{item.requirementList.length}}</text>
+            </view>
+          </view>
+
+          <!-- For regular requirements -->
+          <view wx:elif="{{!item.isPackage}}" class="requirement-info" bindtap="goToRequirementContents" data-index="{{index}}">
             <view class="requirement-name-container">
               <image src="../../images/requirement.png" class="requirement-icon-small"></image>
-              <text class="requirement-name" bindtap="goToRequirementContents" data-index="{{index}}">{{item.requirementName}}</text>
+              <text class="requirement-name">{{item.requirementName}}</text>
             </view>
             <view class="requirement-details">
               <view class="detail-row">

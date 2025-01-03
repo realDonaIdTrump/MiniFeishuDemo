@@ -14,6 +14,26 @@
 .requirement-icon {
   width: 48rpx;
   height: 48rpx;
+  margin-right: 8rpx;
+}
+
+.package-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.package-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.package-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
 }
 
 .requirement-icon-small {
@@ -41,6 +61,81 @@
 
 .requirement-list {
   margin-top: 20rpx;
+}
+
+.requirement-item {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.requirement-item:hover {
+  transform: scale(1.02);
+}
+
+.requirement-header {
+  display: flex;
+  align-items: center;
+}
+
+.expand-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.requirement-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.requirement-name-container {
+  display: flex;
+  align-items: center;
+}
+
+.requirement-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.requirement-name:hover {
+  color: #B70032;
+}
+
+.requirement-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+}
+
+.detail-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #666;
+}
+
+.detail-content {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
+}
+
+.requirement-count {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 5rpx;
+  font-weight: bold;
 }
 
 .requirement-item {
