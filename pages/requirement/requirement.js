@@ -13,7 +13,7 @@ Page({
     const app = getApp();
     const apiUrl = app.globalData.apiUrl;
     const PLId = app.globalData.PLId;
-
+  
     tt.request({
       url: apiUrl + '/server/operation/getRequirement',
       method: 'POST',
@@ -25,18 +25,35 @@ Page({
         if (res.data.code === '200') {
           const vehicleData = res.data.data.result.find(item => item.PLId === PLId);
           if (vehicleData) {
-            const requirementPackages = vehicleData.list.map(pkg => ({
-              ...pkg,
-              vehicleType: vehicleData.name,
-              requirementList: pkg.requirementList.map(req => ({
-                ...req,
-                expanded: false
-              }))
-            }));
+            // Recursive function to count all requirements in a package
+            function calculateTotalRequirements(packageItem) {
+              let total = packageItem.requirementList ? packageItem.requirementList.length : 0;
+              if (packageItem.childPackages) {
+                packageItem.childPackages.forEach(child => {
+                  total += calculateTotalRequirements(child);
+                });
+              }
+              return total;
+            }
+  
+            const requirementPackages = vehicleData.list.map(pkg => {
+              const totalRequirements = calculateTotalRequirements(pkg); // Calculate total recursively
+              return {
+                ...pkg,
+                vehicleType: vehicleData.name,
+                totalRequirements, // Add total requirement count
+                requirementList: pkg.requirementList.map(req => ({
+                  ...req,
+                  expanded: false
+                }))
+              };
+            });
+  
             that.setData({
               requirementPackages: requirementPackages,
               vehicleType: vehicleData.name
             });
+  
             app.globalData.selectedVehicleType = vehicleData.name; // Set the selected vehicle type in global data
           }
         } else {
@@ -48,6 +65,7 @@ Page({
       }
     });
   },
+  
 
   goToRequirementChild: function (e) {
     const index = e.currentTarget.dataset.index;

@@ -15,7 +15,7 @@
           <text class="package-title">{{item.requirementPackageName}}</text>
         </view>
         <view class="package-content">
-          <text class="requirement-count">Total Requirements: {{item.requirementList.length}}</text>
+          <text class="requirement-count">Total Requirements: {{item.totalRequirements}}</text>
         </view>
       </view>
     </block>
